@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.Caveat-text {
+  font-family: "Caveat", cursive;
+}
+.Kalam-text {
+  font-family: "Kalam", cursive !important;
+}
+.Tangerine-text{
+  font-family: 'Tangerine', cursive;
+}
+.Prism-text {
+  font-family: "Tilt Prism", cursive;
+}
+.active {
+  @apply font-medium tracking-wide text-orange-600 transition-colors duration-200 hover:text-orange-400;
+}
+
+.default {
+  @apply font-medium tracking-wide text-white transition-colors duration-200 hover:text-orange-400;
+}
