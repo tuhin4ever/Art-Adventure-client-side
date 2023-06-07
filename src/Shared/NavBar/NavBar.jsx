@@ -10,12 +10,28 @@ const NavBar = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
+        let timerInterval;
         Swal.fire({
-          position: "center",
           icon: "success",
-          title: "LogOut Success",
-          showConfirmButton: false,
-          timer: 1500,
+          title: "User logged out successfully",
+          html: "I will close in <b></b> milliseconds.",
+          timer: 2000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+            const b = Swal.getHtmlContainer().querySelector("b");
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft();
+            }, 100);
+          },
+          willClose: () => {
+            clearInterval(timerInterval);
+          },
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("I was closed by the timer");
+          }
         });
       })
       .catch((error) => {
@@ -71,10 +87,10 @@ const NavBar = () => {
           <ul className="items-center hidden space-x-8 lg:flex mr-12">
             {!user ? (
               <NavLink
-                to="/singUp"
+                to="/SignUp"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
-                Sing Up
+                Sign Up
               </NavLink>
             ) : (
               <NavLink
@@ -106,12 +122,12 @@ const NavBar = () => {
                 </button>
               ) : (
                 <NavLink
-                  to="/singIn"
+                  to="/SignIn"
                   className={({ isActive }) =>
                     isActive ? "active" : "default"
                   }
                 >
-                  Sing In
+                  Sign In
                 </NavLink>
               )}
             </li>
@@ -182,10 +198,10 @@ const NavBar = () => {
                       <li>
                         {!user ? (
                           <Link
-                            to="/singUp"
+                            to="/SignUp"
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
                           >
-                            Sing Up
+                            Sign Up
                           </Link>
                         ) : (
                           <Link
@@ -218,10 +234,10 @@ const NavBar = () => {
                           </button>
                         ) : (
                           <Link
-                            to="/singIn"
+                            to="/SignIN"
                             className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
                           >
-                            Sing In
+                            Sign In
                           </Link>
                         )}
                       </li>

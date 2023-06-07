@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import readerSingUp from "../../assets/ARTSsingUP.json";
 import Lottie from "lottie-react";
-const SingUp = () => {
+const SignUp = () => {
   const {
     register,
     handleSubmit,
@@ -120,12 +120,6 @@ const SingUp = () => {
                   lowercase letter, one number, and one special character
                 </span>
               )}
-
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
             </div>
             <div className="form-control mt-6">
               <input
@@ -137,7 +131,7 @@ const SingUp = () => {
           </form>
           <p className="my-4 text-center text-sm font-bold">
             Already have an account ?{" "}
-            <Link to="/signIn" className="text-secondary">
+            <Link to="/SignIn" className="text-secondary">
               Sign In
             </Link>
           </p>
@@ -147,4 +141,4 @@ const SingUp = () => {
   );
 };
 
-export default SingUp;
+export default SignUp;
