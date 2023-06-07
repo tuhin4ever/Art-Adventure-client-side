@@ -14,7 +14,7 @@ const NavBar = () => {
         Swal.fire({
           icon: "success",
           title: "User logged out successfully",
-          html: "I will close in <b></b> milliseconds.",
+          html: " will Sign out in <b></b> milliseconds.",
           timer: 2000,
           timerProgressBar: true,
           didOpen: () => {

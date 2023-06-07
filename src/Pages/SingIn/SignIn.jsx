@@ -1,10 +1,11 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import readerSingIn from "../../assets/ARTSsingUP.json";
+import readerSingIn from "../../assets/SignIn.json";
 import Lottie from "lottie-react";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 const SignIn = () => {
   const { singIn } = useContext(AuthContext);
   const {
@@ -25,7 +26,7 @@ const SignIn = () => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "LogIn Success",
+        title: "Sign In Success",
         text: `Welcome Back ${result.user.displayName} ✨`,
         showConfirmButton: false,
         timer: 2000,
@@ -38,16 +39,10 @@ const SignIn = () => {
       className="hero min-h-screen bg-cover bg-center bg-base-200"
       style={{
         backgroundImage:
-          "url(https://i.ibb.co/2gj8j8F/pexels-alexander-grey-3694871.jpg)",
+          "url(https://i.ibb.co/5BBfCcz/pexels-yigithan-bal-1108532.jpg)",
       }}
     >
       <div className="hero-content my-16 flex-col lg:flex-row-reverse">
-        <div className="text-center lg:text-left ">
-          <h1 className=" text-5xl font-bold text-center title-text uppercase Prism-text">
-            Sign In now !
-          </h1>
-          <Lottie animationData={readerSingIn} className="w-96" />
-        </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="form-control">
@@ -118,6 +113,13 @@ const SignIn = () => {
               Sign Up
             </Link>
           </p>
+          <SocialLogin></SocialLogin>
+        </div>
+        <div className="text-center lg:text-left ">
+          <h1 className=" text-5xl font-bold text-center title-text uppercase Prism-text">
+            Sign In now !
+          </h1>
+          <Lottie animationData={readerSingIn} className="w-96" />
         </div>
       </div>
     </div>

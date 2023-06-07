@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import readerSingUp from "../../assets/ARTSsingUP.json";
 import Lottie from "lottie-react";
+import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 const SignUp = () => {
   const {
     register,
@@ -129,12 +130,13 @@ const SignUp = () => {
               />
             </div>
           </form>
-          <p className="my-4 text-center text-sm font-bold">
+          <p className="text-center text-sm font-bold">
             Already have an account ?{" "}
             <Link to="/SignIn" className="text-secondary">
               Sign In
             </Link>
           </p>
+          <SocialLogin></SocialLogin>
         </div>
       </div>
     </div>

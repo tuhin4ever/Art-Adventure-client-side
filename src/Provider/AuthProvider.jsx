@@ -13,6 +13,7 @@ import app from "../firebase/firebase.config";
 import Swal from "sweetalert2";
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
+
 const googleAuthProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
