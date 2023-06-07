@@ -77,10 +77,10 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink
-                to="/blog"
+                to="/classes"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
-                more
+                Classes
               </NavLink>
             </li>
           </ul>
@@ -193,6 +193,14 @@ const NavBar = () => {
                           className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
                         >
                           Blog
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/classes"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                        >
+                          Classes
                         </Link>
                       </li>
                       <li>
