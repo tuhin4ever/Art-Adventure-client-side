@@ -69,10 +69,10 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink
-                to="/blog"
+                to="/instructor"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
-                Blog
+                Instructor
               </NavLink>
             </li>
             <li>
@@ -97,7 +97,7 @@ const NavBar = () => {
                 to="/dashboard"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
-                <p className="flex items-center gap-2">Dashboard</p>
+                Dashboard
               </NavLink>
             )}
 
@@ -179,45 +179,55 @@ const NavBar = () => {
                   <nav>
                     <ul className="space-y-4 uppercase">
                       <li>
-                        <Link
+                        <NavLink
                           to="/"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                          className={({ isActive }) =>
+                            isActive ? "active" : "default"
+                          }
                         >
                           Home
-                        </Link>
+                        </NavLink>
                       </li>
 
                       <li>
-                        <Link
-                          to="/blog"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                        <NavLink
+                          to="/instructor"
+                          className={({ isActive }) =>
+                            isActive ? "active" : "default"
+                          }
                         >
-                          Blog
-                        </Link>
+                          Instructor
+                        </NavLink>
                       </li>
                       <li>
-                        <Link
+                        <NavLink
                           to="/classes"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                          className={({ isActive }) =>
+                            isActive ? "active" : "default"
+                          }
                         >
                           Classes
-                        </Link>
+                        </NavLink>
                       </li>
                       <li>
                         {!user ? (
-                          <Link
+                          <NavLink
                             to="/SignUp"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                            className={({ isActive }) =>
+                              isActive ? "active" : "default"
+                            }
                           >
                             Sign Up
-                          </Link>
+                          </NavLink>
                         ) : (
-                          <Link
+                          <NavLink
                             to="/dashboard"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                            className={({ isActive }) =>
+                              isActive ? "active" : "default"
+                            }
                           >
-                            <p className="flex items-center gap-2">Dashboard</p>
-                          </Link>
+                            Dashboard
+                          </NavLink>
                         )}
                       </li>
 
@@ -241,12 +251,14 @@ const NavBar = () => {
                             Logout
                           </button>
                         ) : (
-                          <Link
-                            to="/SignIN"
-                            className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                          <NavLink
+                            to="/SignIn"
+                            className={({ isActive }) =>
+                              isActive ? "active" : "default"
+                            }
                           >
                             Sign In
-                          </Link>
+                          </NavLink>
                         )}
                       </li>
                     </ul>

@@ -22,11 +22,11 @@
 }
 
 .default {
-  @apply font-medium tracking-wide text-white transition-colors duration-200 hover:text-neutral-content;
+  @apply font-medium tracking-wide text-primary-content transition-colors duration-200 hover:text-accent-focus;
 }
 .drawer-side a.active{
-  color: #fff;
-  border-right: 3px solid #1e3a8a;
+  color: #f42a07;
+  border-right: 3px solid indigo;
 
 }
 .drawer-side a {
