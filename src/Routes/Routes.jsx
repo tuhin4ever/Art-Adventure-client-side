@@ -8,6 +8,10 @@ import Dashboard from "../LayOut/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import MyClasses from "../Pages/DashBoard/MyClasses";
 
+import AllUsers from "../Pages/AllUser/AllUser";
+import AdminRoute from "./AdminRoute";
+import ManageClasses from "../Pages/DashBoard/Admin/ManageClasses";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +46,23 @@ const router = createBrowserRouter([
       {
         path: "myClasses",
         element: <MyClasses></MyClasses>,
+      },
+      // admin routes
+      {
+        path: "allUsers",
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "manageClasses",
+        element: (
+          <AdminRoute>
+            <ManageClasses></ManageClasses>
+          </AdminRoute>
+        ),
       },
     ],
   },

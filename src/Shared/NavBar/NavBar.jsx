@@ -3,7 +3,9 @@ import { Link, NavLink } from "react-router-dom";
 import { HiBars3BottomRight, HiOutlineXMark } from "react-icons/hi2";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useSelected from "../../hooks/useSelected";
 const NavBar = () => {
+  const [selectCourse] = useSelected();
   //   const user = false;
   const { user, logOut } = useContext(AuthContext);
 
@@ -84,7 +86,7 @@ const NavBar = () => {
               </NavLink>
             </li>
           </ul>
-          <ul className="items-center hidden space-x-8 lg:flex mr-12">
+          <ul className="items-center hidden space-x-8 lg:flex mr-10">
             {!user ? (
               <NavLink
                 to="/SignUp"
@@ -97,7 +99,12 @@ const NavBar = () => {
                 to="/dashboard"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
-                Dashboard
+                <div className="flex">
+                  <p>Dashboard</p>
+                  <span className="badge -mt-1 kalam-text text-white border-transparent bg-error-content">
+                    +{selectCourse?.length || 0}
+                  </span>
+                </div>
               </NavLink>
             )}
 
@@ -226,7 +233,12 @@ const NavBar = () => {
                               isActive ? "active" : "default"
                             }
                           >
-                            Dashboard
+                            <div className="flex">
+                              <p>Dashboard</p>
+                              <span className="badge -mt-1 kalam-text text-white border-transparent bg-error-content">
+                                +{selectCourse?.length || 0}
+                              </span>
+                            </div>
                           </NavLink>
                         )}
                       </li>

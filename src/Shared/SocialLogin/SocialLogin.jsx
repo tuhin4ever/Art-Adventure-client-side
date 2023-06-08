@@ -15,6 +15,23 @@ const SocialLogin = () => {
     singInWithGoogle().then((result) => {
       const loggedInUser = result.user;
       console.log(loggedInUser);
+
+      const saveUser = {
+        name: loggedInUser.displayName,
+        email: loggedInUser.email,
+      };
+      fetch(`http://localhost:5000/users`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(saveUser),
+      })
+        .then((res) => res.json())
+        .then(() => {
+          navigate(from, { replace: true });
+        });
+
       Swal.fire({
         icon: "success",
         title: "User logged in successfully",
@@ -22,8 +39,6 @@ const SocialLogin = () => {
         showConfirmButton: false,
         timer: 2000,
       });
-
-      navigate(from);
     });
   };
 

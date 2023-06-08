@@ -1,30 +1,54 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import readerSingUp from "../../assets/ARTSsingUP.json";
 import Lottie from "lottie-react";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+
 const SignUp = () => {
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
+    watch, // Add watch function from react-hook-form
   } = useForm();
   const { createUser, updateUserProfile, setReload } = useContext(AuthContext);
   const navigate = useNavigate();
+  
+  const [passwordError, setPasswordError] = useState(""); // State to store password error
+
+  const watchPassword = watch("password", ""); // Watch the password field for changes
 
   const onSubmit = (data) => {
-    console.log(data);
+    if (data.password !== data.confirmPassword) {
+      setPasswordError("Passwords do not match"); // Set error message if passwords don't match
+      return;
+    }
+
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
-      console.log(loggedUser);
-      updateUserProfile(data.name, data.photoURL).then(() => {
-        reset();
-        setReload(true);
-        navigate("/");
-      });
+      if (loggedUser) {
+        updateUserProfile(data.name, data.photoURL).then(() => {
+          const saveUser = { name: data.name, email: data.email };
+          console.log(saveUser);
+          fetch(`http://localhost:5000/users`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(saveUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              reset();
+              navigate("/");
+              setReload(true);
+            });
+        });
+      }
     });
   };
 
@@ -38,8 +62,8 @@ const SignUp = () => {
     >
       <div className="hero-content my-16 flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left ">
-          <h1 className=" text-5xl font-bold text-center title-text uppercase Prism-text">
-            Sign Up now !
+          <h1 className="text-5xl font-bold text-center title-text uppercase Prism-text">
+            Sign Up now!
           </h1>
           <Lottie animationData={readerSingUp} className="w-96" />
         </div>
@@ -105,7 +129,6 @@ const SignUp = () => {
                 placeholder="Password"
                 className="input input-bordered"
               />
-
               {errors.password?.type === "required" && (
                 <span className="text-red-600">Password is required</span>
               )}
@@ -117,9 +140,26 @@ const SignUp = () => {
               )}
               {errors.password?.type === "pattern" && (
                 <span className="text-red-600">
-                  Password must contain at least one uppercase letter, one
-                  lowercase letter, one number, and one special character
+                  Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character
                 </span>
+              )}
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Confirm Password</span>
+              </label>
+              <input
+                {...register("confirmPassword", { required: true })}
+                type="password"
+                name="confirmPassword"
+                placeholder="Confirm Password"
+                className="input input-bordered"
+              />
+              {errors.confirmPassword && (
+                <span className="text-red-600">Confirm Password is required</span>
+              )}
+              {passwordError && (
+                <span className="text-red-600">{passwordError}</span>
               )}
             </div>
             <div className="form-control mt-6">
@@ -131,12 +171,12 @@ const SignUp = () => {
             </div>
           </form>
           <p className="text-center text-sm font-bold">
-            Already have an account ?{" "}
+            Already have an account?{" "}
             <Link to="/SignIn" className="text-secondary">
               Sign In
             </Link>
           </p>
-          <SocialLogin></SocialLogin>
+          <SocialLogin />
         </div>
       </div>
     </div>

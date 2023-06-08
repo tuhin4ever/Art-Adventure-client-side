@@ -3,14 +3,16 @@ import { FaDollarSign, FaUserCheck, FaUsers } from "react-icons/fa";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import useSelected from "../../hooks/useSelected";
+import useAdmin from "../../hooks/useAdmin";
 
 export const ClassesCard = ({ item }) => {
-  
+  const [,refetch] = useSelected();
   const { _id, name, image, instructor, available_seats, price, enrolled } = item;
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-
+  // const [isAdmin]= useAdmin()
   const handleAddSelect = () => {
     if (user && user.email) {
       if (available_seats === 0 || user.role === "admin" || user.role === "instructor") {
@@ -28,6 +30,7 @@ export const ClassesCard = ({ item }) => {
         .then((res) => res.json())
         .then((data) => {
           if (data.insertedId) {
+            refetch();
             Swal.fire({
               icon: "success",
               title: "Class added to cart successfully",
@@ -80,7 +83,7 @@ export const ClassesCard = ({ item }) => {
         <div className="card-actions mx-auto mt-4">
           <button
             onClick={() => handleAddSelect(item)}
-            disabled={available_seats === 0 || user?.role === "admin" || user?.role === "instructor"}
+            // disabled={available_seats === 0 || isAdmin }
             className={`btn btn-outline border-0 border-b-4 border-red-900 text-lg text-slate-800 font-bold py-2 px-6 rounded-full ${available_seats === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
             Select

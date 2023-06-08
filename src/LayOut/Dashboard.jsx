@@ -14,15 +14,19 @@ import {
   HiOutlineMenuAlt2,
   HiShoppingBag,
 } from "react-icons/hi";
+import useSelected from "../hooks/useSelected";
+import useAdmin from "../hooks/useAdmin";
+import useStudent from "../hooks/useStudent";
+import useInstructor from "../hooks/useInstructor";
 
-// import useCart from "../hooks/useCart";
-// import useAdmin from "../hooks/useAdmin";
 const Dashboard = () => {
-//   const [cart] = useCart();
+  const [selectCourse] = useSelected();
 
   // TODO: load data from the server to have dynamic isAdmin based on data
-  const isAdmin = false;
-//   const [isAdmin] = useAdmin();
+  // const isAdmin = true;
+  const [isAdmin] = useAdmin();
+  const [isStudent] = useStudent();
+  const [isInstructor] = useInstructor();
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -39,12 +43,46 @@ const Dashboard = () => {
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-80 bg-primary-content text-base-content h-screen">
-          {isAdmin ? (
+          {isAdmin && (
             <>
               <li>
                 <NavLink to="/dashboard/home">
                   <FaHome />
                   Admin Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/additem">
+                  <FaUtensils /> Add Item
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/manageClasses">
+                  <HiOutlineMenu />
+                  Manage Classes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/managebooking">
+                  <FaBook />
+                  Manage Bookings
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/allusers">
+                  <FaUsers />
+                  All User
+                </NavLink>
+              </li>
+            </>
+          )}
+
+          {isInstructor && (
+            <>
+              <li>
+                <NavLink to="/dashboard/home">
+                  <FaHome />
+                  Instructor Home
                 </NavLink>
               </li>
               <li>
@@ -71,7 +109,9 @@ const Dashboard = () => {
                 </NavLink>
               </li>
             </>
-          ) : (
+          )}
+
+          {isStudent && (
             <>
               <li>
                 <NavLink to="/dashboard/history">
@@ -95,12 +135,11 @@ const Dashboard = () => {
                 <NavLink to="/dashboard/myClasses">
                   <FaShoppingCart />
                   My Cart
-                  {/* <span className="badge">+{cart?.length || 0}</span> */}
+                  <span className="badge">+{selectCourse?.length || 0}</span>
                 </NavLink>
               </li>
             </>
           )}
-
           <div className="divider"></div>
           <li>
             <NavLink to="/">

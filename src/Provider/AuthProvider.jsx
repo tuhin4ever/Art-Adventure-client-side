@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import Swal from "sweetalert2";
+import axios from "axios";
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
@@ -48,8 +49,26 @@ const AuthProvider = ({ children }) => {
   // observe auth state changes
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      // console.log("auth state change", currentUser);
+      console.log("auth state change", currentUser);
       setUser(currentUser);
+      setLoading(false);
+      // get and set jwt token
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/jwt", {
+            email: currentUser?.email,
+          })
+          .then((res) => {
+            // console.log(res.data.token);
+            localStorage.setItem("access-token", res.data.token);
+            setLoading(false);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      } else {
+        localStorage.removeItem("access-token");
+      }
       setLoading(false);
     });
     if (reload) {
