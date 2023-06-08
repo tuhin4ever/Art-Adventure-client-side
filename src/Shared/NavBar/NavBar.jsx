@@ -104,10 +104,10 @@ const NavBar = () => {
             <li className="flex items-center gap-8">
               {user && (
                 <div
-                  className="avatar tooltip tooltip-bottom tooltip-primary"
+                  className="avatar tooltip tooltip-bottom tooltip-secondary"
                   data-tip={user.displayName}
                 >
-                  <div className="w-9 rounded-full ring ring-primary   ">
+                  <div className="w-9 rounded-full ring ring-error-content  ">
                     <img src={user.photoURL} />
                   </div>
                 </div>
@@ -116,7 +116,7 @@ const NavBar = () => {
               {user ? (
                 <button
                   onClick={handleLogOut}
-                  className="btn btn-xs btn-outline"
+                  className="btn btn-xs btn-outline border-0 border-b-2 hover:bg-error-content  border-red-900  text-white  py-2 px-6 rounded-full"
                 >
                   Logout
                 </button>
@@ -141,7 +141,7 @@ const NavBar = () => {
               title="Open Menu"
               onClick={() => setIsMenuOpen(true)}
             >
-              <HiBars3BottomRight className="w-7 text-gray-600" />
+              <HiBars3BottomRight className="w-7 text-gray-200" />
             </button>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full z-20">
@@ -224,10 +224,10 @@ const NavBar = () => {
                       <li className="flex items-center gap-8">
                         {user && (
                           <div
-                            className="avatar tooltip tooltip-bottom tooltip-primary"
+                            className="avatar tooltip tooltip-bottom tooltip-secondary"
                             data-tip={user.displayName}
                           >
-                            <div className="w-9 rounded-full  ring-1 ring-primary">
+                            <div className="w-9 rounded-full ring ring-error-content">
                               <img src={user.photoURL} />
                             </div>
                           </div>
@@ -236,7 +236,7 @@ const NavBar = () => {
                         {user ? (
                           <button
                             onClick={handleLogOut}
-                            className="btn btn-xs  btn-outline"
+                            className="btn btn-xs btn-outline border-0 border-b-2 hover:bg-error-content  border-red-900  text-gray-700   py-2 px-6 rounded-full"
                           >
                             Logout
                           </button>

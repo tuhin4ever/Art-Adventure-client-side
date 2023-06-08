@@ -18,13 +18,20 @@
   @apply px-4  py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 md:pt-9;
 }
 .active {
-  @apply font-medium tracking-wide text-orange-600 transition-colors duration-200 hover:text-orange-400;
+  @apply font-medium tracking-wide text-primary transition-colors duration-200 hover:text-secondary;
 }
 
 .default {
-  @apply font-medium tracking-wide text-white transition-colors duration-200 hover:text-orange-400;
+  @apply font-medium tracking-wide text-white transition-colors duration-200 hover:text-neutral-content;
 }
+.drawer-side a.active{
+  color: #fff;
+  border-right: 3px solid #1e3a8a;
 
+}
+.drawer-side a {
+  background-color: transparent;
+}
 @layer utilities {
   .title-text {
     @apply animate-text bg-gradient-to-r from-red-600 via-orange-400 to-green-400 bg-clip-text text-transparent font-black;
