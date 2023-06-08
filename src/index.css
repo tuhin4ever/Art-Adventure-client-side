@@ -8,11 +8,14 @@
 .Kalam-text {
   font-family: "Kalam", cursive !important;
 }
-.Tangerine-text{
-  font-family: 'Tangerine', cursive;
+.Permanent-text{
+  font-family: 'Cinzel', serif;
 }
 .Prism-text {
   font-family: "Tilt Prism", cursive;
+}
+.my-container {
+  @apply px-4  py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 md:pt-9;
 }
 .active {
   @apply font-medium tracking-wide text-orange-600 transition-colors duration-200 hover:text-orange-400;
