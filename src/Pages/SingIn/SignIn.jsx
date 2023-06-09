@@ -1,13 +1,18 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import readerSingIn from "../../assets/SignIn.json";
 import Lottie from "lottie-react";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+
 const SignIn = () => {
   const { singIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/";
+
   const {
     register,
     handleSubmit,
@@ -15,14 +20,13 @@ const SignIn = () => {
     formState: { errors },
   } = useForm();
 
-  const navigate = useNavigate();
-
   const onSubmit = (data) => {
     console.log(data);
     singIn(data.email, data.password).then((result) => {
+      navigate(from, { replace: true });
       console.log("result", result);
       reset();
-      navigate("/");
+
       Swal.fire({
         position: "center",
         icon: "success",

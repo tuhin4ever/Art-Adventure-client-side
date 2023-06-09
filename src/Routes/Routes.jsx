@@ -49,8 +49,8 @@ const router = createBrowserRouter([
         element: <MyClasses></MyClasses>,
       },
       {
-        path: 'payment',
-        element: <Payment></Payment>
+        path: "payment",
+        element: <Payment></Payment>,
       },
       // admin routes
       {

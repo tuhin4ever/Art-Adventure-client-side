@@ -7,18 +7,16 @@ import useSelected from "../../hooks/useSelected";
 import useAdmin from "../../hooks/useAdmin";
 
 export const ClassesCard = ({ item }) => {
-  const [,refetch] = useSelected();
-  const { _id, name, image, instructor, available_seats, price, enrolled } = item;
+  const [, refetch] = useSelected();
+  const { _id, name, image, instructor, available_seats, price, enrolled } =
+    item;
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  // const [isAdmin]= useAdmin()
+  
+  const [isAdmin] = useAdmin();
   const handleAddSelect = () => {
     if (user && user.email) {
-      if (available_seats === 0 || user.role === "admin" || user.role === "instructor") {
-        return;
-      }
-
       const cartItem = { classId: _id, name, image, price, email: user.email };
       fetch("http://localhost:5000/selectCourse", {
         method: "POST",
@@ -50,14 +48,18 @@ export const ClassesCard = ({ item }) => {
         confirmButtonText: "Sign in Now!",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/signIn", { state: { from: location } });
+          navigate("/signIn", { state: { from: location  }  }  );
         }
       });
     }
   };
 
   return (
-    <div className={`card w-96 h-full bg-base-100 shadow-2xl ${available_seats === 0 ? 'bg-red-500' : ''}`}>
+    <div
+      className={`card w-96 h-full bg-base-100 shadow-2xl ${
+        available_seats === 0 ? "bg-red-500" : ""
+      }`}
+    >
       <figure className="p-4">
         <img src={image} alt={name} className="rounded-xl" />
       </figure>
@@ -83,8 +85,10 @@ export const ClassesCard = ({ item }) => {
         <div className="card-actions mx-auto mt-4">
           <button
             onClick={() => handleAddSelect(item)}
-            // disabled={available_seats === 0 || isAdmin }
-            className={`btn btn-outline border-0 border-b-4 border-red-900 text-lg text-slate-800 font-bold py-2 px-6 rounded-full ${available_seats === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+            disabled={available_seats === 0 || isAdmin}
+            className={`btn btn-outline border-0 border-b-4 border-red-900 text-lg text-slate-800 font-bold py-2 px-6 rounded-full ${
+              available_seats === 0 ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           >
             Select
           </button>
