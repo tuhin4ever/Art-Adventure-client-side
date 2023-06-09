@@ -13,7 +13,7 @@ const Payment = () => {
       ></SectionTitle>
       <h2 className="text-3xl text-center">taka taka tumi uira uira asho </h2>
       <Elements stripe={stripePromise}>
-        <CheckoutForm ></CheckoutForm>
+        <CheckoutForm></CheckoutForm>
       </Elements>
     </div>
   );
