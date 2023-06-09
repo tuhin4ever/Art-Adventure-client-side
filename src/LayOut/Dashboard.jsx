@@ -20,13 +20,14 @@ import useStudent from "../hooks/useStudent";
 import useInstructor from "../hooks/useInstructor";
 
 const Dashboard = () => {
-  const [selectCourse] = useSelected();
-
+  const [selectCourse, refetch] = useSelected();
+refetch();
   // TODO: load data from the server to have dynamic isAdmin based on data
   // const isAdmin = true;
   const [isAdmin] = useAdmin();
   const [isStudent] = useStudent();
   const [isInstructor] = useInstructor();
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -34,7 +35,7 @@ const Dashboard = () => {
         {/* <!-- Page content here --> */}
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-sm drawer-button lg:hidden mt-20 mb-4"
+          className="btn btn-sm drawer-button lg:hidden ml-72  mt-20 mb-4"
         >
           Open drawer
         </label>

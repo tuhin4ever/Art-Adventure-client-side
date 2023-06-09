@@ -5,7 +5,6 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const CheckoutForm = ({ price, selectCourse }) => {
-  console.log("selectCourse", selectCourse)
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useContext(AuthContext);
@@ -73,26 +72,40 @@ const CheckoutForm = ({ price, selectCourse }) => {
         email: user?.email,
         transactionId: paymentIntent.id,
         price,
-        quantity: 1, 
         date: new Date(),
-        selectCourseItems: [selectCourse._id], // Include only the specific item ID
-        classItems: [selectCourse.classId], // Include only the specific item's class ID
+        selectedClassId:selectCourse._id, // Include only the specific item ID
+        classId: selectCourse.classId, // Include only the specific item's class ID
         status: "service pending",
-        className: [selectCourse.name], // Include only the specific item's name
+        className: selectCourse.name, // Include only the specific item's name
       };
-
+      // axiosSecure.post("/payments", payment).then((res) => {
+      //   console.log(res.data);
+      //   if (res.data.insertResult) {
+      //     // DISPLAY SUCCESS MESSAGE
+      //     // navigate("/dashboard/myselectCourse");
+      //     Swal.fire({
+      //       icon: "success",
+      //       title: "Payment Successful",
+      //       text: "Your payment has been successfully processed",
+      //     });
+      //   }
+      // });
+    
       axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data);
-        if (res.data.insertResult) {
-          // DISPLAY SUCCESS MESSAGE
-          // navigate("/dashboard/myselectCourse");
+        if (res.data.insertResult.insertedId) {
           Swal.fire({
-            icon: "success",
-            title: "Payment Successful",
-            text: "Your payment has been successfully processed",
+            title: "Payment Successful.",
+            showClass: {
+              popup: "animate__animated animate__fadeInDown",
+            },
+            hideClass: {
+              popup: "animate__animated animate__fadeOutUp",
+            },
           });
         }
       });
+    
     }
   };
 
