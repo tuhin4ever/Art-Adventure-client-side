@@ -16,14 +16,14 @@ const SignUp = () => {
   } = useForm();
   const { createUser, updateUserProfile, setReload } = useContext(AuthContext);
   const navigate = useNavigate();
-  
-  const [passwordError, setPasswordError] = useState(""); // State to store password error
 
-  const watchPassword = watch("password", ""); // Watch the password field for changes
+  const [passwordError, setPasswordError] = useState("");
+
+  const watchPassword = watch("password", "");
 
   const onSubmit = (data) => {
     if (data.password !== data.confirmPassword) {
-      setPasswordError("Passwords do not match"); // Set error message if passwords don't match
+      setPasswordError("Passwords do not match");
       return;
     }
 
@@ -31,7 +31,13 @@ const SignUp = () => {
       const loggedUser = result.user;
       if (loggedUser) {
         updateUserProfile(data.name, data.photoURL).then(() => {
-          const saveUser = { name: data.name, email: data.email };
+          const saveUser = {
+            name: data.name,
+            email: data.email,
+            image: data.photoURL,
+            role: "student",
+          };
+
           console.log(saveUser);
           fetch(`http://localhost:5000/users`, {
             method: "POST",
@@ -140,7 +146,8 @@ const SignUp = () => {
               )}
               {errors.password?.type === "pattern" && (
                 <span className="text-red-600">
-                  Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character
+                  Password must contain at least one uppercase letter, one
+                  lowercase letter, one number, and one special character
                 </span>
               )}
             </div>
@@ -156,7 +163,9 @@ const SignUp = () => {
                 className="input input-bordered"
               />
               {errors.confirmPassword && (
-                <span className="text-red-600">Confirm Password is required</span>
+                <span className="text-red-600">
+                  Confirm Password is required
+                </span>
               )}
               {passwordError && (
                 <span className="text-red-600">{passwordError}</span>
