@@ -71,10 +71,10 @@ const NavBar = () => {
             </li>
             <li>
               <NavLink
-                to="/instructor"
+                to="/instructors"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
-                Instructor
+                Instructors
               </NavLink>
             </li>
             <li>
@@ -198,12 +198,12 @@ const NavBar = () => {
 
                       <li>
                         <NavLink
-                          to="/instructor"
+                          to="/instructors"
                           className={({ isActive }) =>
                             isActive ? "active" : "default"
                           }
                         >
-                          Instructor
+                          instructors
                         </NavLink>
                       </li>
                       <li>

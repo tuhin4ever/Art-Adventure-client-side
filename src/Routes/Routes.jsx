@@ -12,6 +12,7 @@ import AllUsers from "../Pages/AllUser/AllUser";
 import AdminRoute from "./AdminRoute";
 import ManageClasses from "../Pages/DashBoard/Admin/ManageClasses";
 import Payment from "../Pages/DashBoard/Payment/Payment";
+import Instructors from "../Pages/Instructors/Instructors";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,11 @@ const router = createBrowserRouter([
       {
         path: "classes",
         element: <Classes></Classes>,
+      },
+      {
+        path: "instructors",
+        element: <Instructors></Instructors>,
+        loader: () => fetch("http://localhost:5000/instructors"),
       },
     ],
   },
