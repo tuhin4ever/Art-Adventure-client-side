@@ -24,7 +24,7 @@ const SignIn = () => {
     console.log(data);
     singIn(data.email, data.password).then((result) => {
       navigate(from, { replace: true });
-      console.log("result", result);
+      // console.log("result", result);
       reset();
 
       Swal.fire({
