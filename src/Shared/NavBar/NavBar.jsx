@@ -101,9 +101,11 @@ const NavBar = () => {
               >
                 <div className="flex">
                   <p>Dashboard</p>
-                  <span className="badge -mt-1 kalam-text text-white border-transparent bg-error-content">
-                    +{selectCourse?.length || 0}
-                  </span>
+                  {selectCourse?.length > 0 && (
+                    <span className="badge -mt-1 kalam-text text-white border-transparent bg-error-content">
+                      +{selectCourse.length}
+                    </span>
+                  )}
                 </div>
               </NavLink>
             )}
@@ -235,9 +237,11 @@ const NavBar = () => {
                           >
                             <div className="flex">
                               <p>Dashboard</p>
-                              <span className="badge -mt-1 kalam-text text-white border-transparent bg-error-content">
-                                +{selectCourse?.length || 0}
-                              </span>
+                              {selectCourse?.length > 0 && (
+                                <span className="badge -mt-1 kalam-text text-white border-transparent bg-error-content">
+                                  +{selectCourse.length}
+                                </span>
+                              )}
                             </div>
                           </NavLink>
                         )}

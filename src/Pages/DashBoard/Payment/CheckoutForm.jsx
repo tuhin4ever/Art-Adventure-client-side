@@ -78,33 +78,33 @@ const CheckoutForm = ({ price, selectCourse }) => {
         status: "service pending",
         className: selectCourse.name, // Include only the specific item's name
       };
-      // axiosSecure.post("/payments", payment).then((res) => {
-      //   console.log(res.data);
-      //   if (res.data.insertResult) {
-      //     // DISPLAY SUCCESS MESSAGE
-      //     // navigate("/dashboard/myselectCourse");
-      //     Swal.fire({
-      //       icon: "success",
-      //       title: "Payment Successful",
-      //       text: "Your payment has been successfully processed",
-      //     });
-      //   }
-      // });
-    
       axiosSecure.post("/payments", payment).then((res) => {
         console.log(res.data);
-        if (res.data.insertResult.insertedId) {
+        if (res.data.insertResult) {
+          // DISPLAY SUCCESS MESSAGE
+          // navigate("/dashboard/myselectCourse");
           Swal.fire({
-            title: "Payment Successful.",
-            showClass: {
-              popup: "animate__animated animate__fadeInDown",
-            },
-            hideClass: {
-              popup: "animate__animated animate__fadeOutUp",
-            },
+            icon: "success",
+            title: "Payment Successful",
+            text: "Your payment has been successfully processed",
           });
         }
       });
+    
+      // axiosSecure.post("/payments", payment).then((res) => {
+      //   console.log(res.data);
+      //   if (res.data.insertResult.insertedId) {
+      //     Swal.fire({
+      //       title: "Payment Successful.",
+      //       showClass: {
+      //         popup: "animate__animated animate__fadeInDown",
+      //       },
+      //       hideClass: {
+      //         popup: "animate__animated animate__fadeOutUp",
+      //       },
+      //     });
+      //   }
+      // });
     
     }
   };

@@ -20,8 +20,8 @@ import useStudent from "../hooks/useStudent";
 import useInstructor from "../hooks/useInstructor";
 
 const Dashboard = () => {
-  const [selectCourse, refetch] = useSelected();
-refetch();
+  const [selectCourse] = useSelected();
+
   // TODO: load data from the server to have dynamic isAdmin based on data
   // const isAdmin = true;
   const [isAdmin] = useAdmin();
@@ -136,7 +136,9 @@ refetch();
                 <NavLink to="/dashboard/myClasses">
                   <FaShoppingCart />
                   My Cart
-                  <span className="badge">+{selectCourse?.length || 0}</span>
+                  {selectCourse?.length > 0 && (
+                    <span className="badge">+{selectCourse.length}</span>
+                  )}
                 </NavLink>
               </li>
             </>
