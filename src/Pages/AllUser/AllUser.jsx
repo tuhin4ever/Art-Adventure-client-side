@@ -76,15 +76,15 @@ const AllUsers = () => {
   };
 
   return (
-    <div className="w-full">
-      <div className="h-screen ">
+    <div className="w-full flex justify-center">
+      <div className="h-screen w-full max-w-3xl">
         <h3 className="text-3xl font-semibold text-center">
           Number of Users : {users.length}
         </h3>
         <div className="overflow-x-auto">
           <table className="table  w-full  rounded-lg">
             <thead>
-              <tr>
+              <tr className="text-center">
                 <th className="py-2">#</th>
                 <th>Name</th>
                 <th>Email</th>
@@ -94,21 +94,25 @@ const AllUsers = () => {
             </thead>
             <tbody>
               {users.map((user, index) => (
-                <tr key={user._id}>
+                <tr className="text-center" key={user._id}>
                   <th className="py-2">{index + 1}</th>
-                  <td>{user.name}</td>
+                  <td >{user.name}</td>
                   <td>{user.email}</td>
                   <td>
                     {user.role === "admin" ? (
                       "admin"
+                    ) : user.role === "instructor" ? (
+                      "instructor"
                     ) : (
                       <div className="dropdown dropdown-right">
                         <label
                           tabIndex={0}
-                          className=" btn btn-outline border btn-sm border-red-900  text-base-content  py-2 px-6 rounded-full"
+                          className="btn btn-outline border btn-sm border-red-900  text-base-content  py-2 px-6 rounded-full"
                         >
-                          <FcMakeDecision></FcMakeDecision>
-                          Make
+                          <p className="flex">
+                            <FcMakeDecision></FcMakeDecision>
+                            Make
+                          </p>
                         </label>
                         <ul
                           tabIndex={0}
