@@ -1,10 +1,12 @@
 import Banner from "../Banner/Banner";
 import Featured from "../Featured/Featured";
+import PopularClassesSection from "../PopularClassesSection/PopularClassesSection";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
+      <PopularClassesSection></PopularClassesSection>
       <Featured></Featured>
     </div>
   );

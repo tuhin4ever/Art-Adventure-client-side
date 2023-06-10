@@ -77,7 +77,7 @@ const AllUsers = () => {
 
   return (
     <div className="w-full flex justify-center">
-      <div className="h-screen w-full max-w-3xl">
+      <div className="h-screen w-full ">
         <h3 className="text-3xl font-semibold text-center">
           Number of Users : {users.length}
         </h3>
