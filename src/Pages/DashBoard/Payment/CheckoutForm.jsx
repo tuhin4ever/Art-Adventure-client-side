@@ -23,7 +23,7 @@ const CheckoutForm = ({ price, selectCourse }) => {
   }, [axiosSecure, price]);
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     if (!stripe || !elements) {
       return;
     }
@@ -32,21 +32,21 @@ const CheckoutForm = ({ price, selectCourse }) => {
       return;
     }
     console.log("card", card);
-  
+
     const { error } = await stripe.createPaymentMethod({
       type: "card",
       card: card,
     });
-  
+
     if (error) {
       console.log("[error]", error);
       setCardError(error.message);
     } else {
       setCardError("");
     }
-  
+
     setProcessing(true);
-  
+
     const { paymentIntent, error: confirmError } =
       await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -57,12 +57,11 @@ const CheckoutForm = ({ price, selectCourse }) => {
           },
         },
       });
-  
+
     if (confirmError) {
       console.log("[confirmError]", confirmError);
     }
-  
-    
+
     setProcessing(false);
     if (paymentIntent?.status === "succeeded") {
       setTransactionId(paymentIntent.id);
@@ -73,13 +72,13 @@ const CheckoutForm = ({ price, selectCourse }) => {
         transactionId: paymentIntent.id,
         price,
         date: new Date(),
-        selectedClassId:selectCourse._id, // Include only the specific item ID
+        selectedClassId: selectCourse._id, // Include only the specific item ID
         classId: selectCourse.classId, // Include only the specific item's class ID
         status: "service pending",
         className: selectCourse.name, // Include only the specific item's name
       };
       axiosSecure.post("/payments", payment).then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.insertResult) {
           // DISPLAY SUCCESS MESSAGE
           // navigate("/dashboard/myselectCourse");
@@ -90,7 +89,7 @@ const CheckoutForm = ({ price, selectCourse }) => {
           });
         }
       });
-    
+
       // axiosSecure.post("/payments", payment).then((res) => {
       //   console.log(res.data);
       //   if (res.data.insertResult.insertedId) {
@@ -105,7 +104,6 @@ const CheckoutForm = ({ price, selectCourse }) => {
       //     });
       //   }
       // });
-    
     }
   };
 

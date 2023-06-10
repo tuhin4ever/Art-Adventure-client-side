@@ -10,7 +10,6 @@ const SignUp = () => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
     watch, // Add watch function from react-hook-form
   } = useForm();
@@ -49,7 +48,6 @@ const SignUp = () => {
             .then((res) => res.json())
             .then((data) => {
               console.log(data);
-              reset();
               navigate("/");
               setReload(true);
             });
