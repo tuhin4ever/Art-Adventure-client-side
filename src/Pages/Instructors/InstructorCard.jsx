@@ -2,7 +2,7 @@ import Tilt from "react-parallax-tilt";
 const InstructorCard = ({ item }) => {
   const { name, image, email } = item;
   return (
-    <div className="transition duration-300 transform hover:scale-105  rounded-lg overflow-hidden shadow-xl">
+    <div className="transition duration-300 transform hover:scale-105  rounded-lg overflow-hidden shadow-md">
       <div className="p-3">
         <div className="flex flex-col items-center cursor-pointer">
           <div className="relative w-40 h-40 mb-4 cursor-move">
