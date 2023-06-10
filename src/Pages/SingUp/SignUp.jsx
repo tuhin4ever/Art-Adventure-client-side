@@ -7,6 +7,7 @@ import Lottie from "lottie-react";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 
 const SignUp = () => {
+  window.scrollTo(0, 0);
   const {
     register,
     handleSubmit,
@@ -17,7 +18,6 @@ const SignUp = () => {
 
   const [passwordError, setPasswordError] = useState("");
   const [isButtonDisabled, setButtonDisabled] = useState(false);
-
 
   const onSubmit = (data) => {
     if (data.password !== data.confirmPassword) {
@@ -77,34 +77,36 @@ const SignUp = () => {
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
-                <input
-                  {...register("name", { required: true })}
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  className="input input-bordered"
-                />
-                {errors.name && (
-                  <span className="text-red-600">Name is required</span>
-                )}
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Photo URL</span>
-                </label>
-                <input
-                  {...register("photoURL", { required: true })}
-                  type="text"
-                  placeholder="Photo URL"
-                  className="input input-bordered"
-                />
-                {errors.photoURL && (
-                  <span className="text-red-600">Photo URL is required</span>
-                )}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Name</span>
+                  </label>
+                  <input
+                    {...register("name", { required: true })}
+                    type="text"
+                    name="name"
+                    placeholder="Name"
+                    className="input input-bordered"
+                  />
+                  {errors.name && (
+                    <span className="text-red-600">Name is required</span>
+                  )}
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Photo URL</span>
+                  </label>
+                  <input
+                    {...register("photoURL", { required: true })}
+                    type="text"
+                    placeholder="Photo URL"
+                    className="input input-bordered"
+                  />
+                  {errors.photoURL && (
+                    <span className="text-red-600">Photo URL is required</span>
+                  )}
+                </div>
               </div>
               <div className="form-control">
                 <label className="label">
@@ -115,63 +117,64 @@ const SignUp = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  className="input input-bordered"
+                  className="input input-bordered w-full"
                 />
                 {errors.email && (
                   <span className="text-red-600">Email is required</span>
                 )}
               </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Password</span>
-                </label>
-                <input
-                  {...register("password", {
-                    required: true,
-                    minLength: 6,
-                    maxLength: 20,
-                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
-                  })}
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  className="input input-bordered"
-                />
-                {errors.password?.type === "required" && (
-                  <span className="text-red-600">Password is required</span>
-                )}
-                {errors.password?.type === "minLength" && (
-                  <span className="text-red-600">Password is too short</span>
-                )}
-                {errors.password?.type === "maxLength" && (
-                  <span className="text-red-600">Password is too long</span>
-                )}
-                {errors.password?.type === "pattern" && (
-                  <span className="text-red-600">
-                    Password must contain at least one uppercase letter, one
-                    lowercase letter, one number, and one special character
-                  </span>
-                )}
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Confirm Password</span>
-                </label>
-                <input
-                  {...register("confirmPassword", { required: true })}
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm Password"
-                  className="input input-bordered"
-                />
-                {errors.confirmPassword && (
-                  <span className="text-red-600">
-                    Confirm Password is required
-                  </span>
-                )}
-                {passwordError && (
-                  <span className="text-red-600">{passwordError}</span>
-                )}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Password</span>
+                  </label>
+                  <input
+                    {...register("password", {
+                      required: true,
+                      minLength: 6,
+                      maxLength: 20,
+                      pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                    })}
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    className="input input-bordered"
+                  />
+                  {errors.password?.type === "required" && (
+                    <span className="text-red-600">Password is required</span>
+                  )}
+                  {errors.password?.type === "minLength" && (
+                    <span className="text-red-600">Password is too short</span>
+                  )}
+                  {errors.password?.type === "maxLength" && (
+                    <span className="text-red-600">Password is too long</span>
+                  )}
+                  {errors.password?.type === "pattern" && (
+                    <span className="text-red-600">
+                      Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character
+                    </span>
+                  )}
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Confirm Password</span>
+                  </label>
+                  <input
+                    {...register("confirmPassword", { required: true })}
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    className="input input-bordered"
+                  />
+                  {errors.confirmPassword && (
+                    <span className="text-red-600">
+                      Confirm Password is required
+                    </span>
+                  )}
+                  {passwordError && (
+                    <span className="text-red-600">{passwordError}</span>
+                  )}
+                </div>
               </div>
               <div className="form-control mt-6">
                 <input

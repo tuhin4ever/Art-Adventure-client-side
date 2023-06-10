@@ -88,6 +88,8 @@ const CheckoutForm = ({ price, selectCourse }) => {
             icon: "success",
             title: "Payment Successful",
             text: "Your payment has been successfully processed",
+            // button false to prevent auto close
+            showConfirmButton: false,
           });
         }
       });

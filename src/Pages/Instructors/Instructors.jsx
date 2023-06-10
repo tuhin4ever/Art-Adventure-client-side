@@ -3,7 +3,10 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTirle";
 import InstructorCard from "./InstructorCard";
 const Instructors = () => {
   const data = useLoaderData();
-  //   console.log(data);
+    // console.log(data);
+    // scroll to top
+    window.scrollTo(0, 0);
+    
   return (
     <div className="mt-20">
       <SectionTitle heading="Instructors" subHeading="Meet Our" />

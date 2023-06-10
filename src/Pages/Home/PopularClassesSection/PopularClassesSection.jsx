@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SectionTitle from "../../../Shared/SectionTitle/SectionTirle";
 
 const PopularClassesSection = () => {
   const [popularClasses, setPopularClasses] = useState([]);
@@ -10,8 +11,11 @@ const PopularClassesSection = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 py-8 ">
-      <h2 className="text-2xl font-bold mb-4 text-center">Popular Classes</h2>
+    <div className="container mx-auto px-4  ">
+      <SectionTitle
+        heading=" Our Popular Classes"
+        subHeading="Arts Adventure"
+      />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {popularClasses.map((classItem) => (
           <div
@@ -27,7 +31,6 @@ const PopularClassesSection = () => {
               <h3 className="text-lg font-semibold mb-2 text-white">
                 {classItem.name}
               </h3>
-              
             </div>
           </div>
         ))}

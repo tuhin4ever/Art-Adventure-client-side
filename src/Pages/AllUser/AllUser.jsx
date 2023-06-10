@@ -96,7 +96,7 @@ const AllUsers = () => {
               {users.map((user, index) => (
                 <tr className="text-center" key={user._id}>
                   <th className="py-2">{index + 1}</th>
-                  <td >{user.name}</td>
+                  <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>
                     {user.role === "admin" ? (
@@ -135,9 +135,9 @@ const AllUsers = () => {
                   <td>
                     <button
                       onClick={() => handleDelete(user)}
-                      className="btn btn-ghost bg-red-600 text-white"
+                      className="text-base-content"
                     >
-                      <FaTrashAlt />
+                      <FaTrashAlt className="text-xl" />
                     </button>
                   </td>
                 </tr>

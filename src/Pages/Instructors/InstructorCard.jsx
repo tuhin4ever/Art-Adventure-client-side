@@ -16,11 +16,11 @@ const InstructorCard = ({ item }) => {
           </div>
           <h2 className="text-2xl font-bold mb-2 Kalam-text">{name}</h2>
           {students && (
-            <p className="text-gray-600 mb-2 Permanent-text text-xl">
+            <p className="text-base-content mb-2 Permanent-text text-xl">
               {students} Student{students > 1 ? "s" : ""}
             </p>
           )}
-          <p className="text-gray-600 mb-2 Caveat-text text-3xl">{email}</p>
+          <p className="text-base-content mb-2 Caveat-text text-3xl">{email}</p>
         </div>
       </div>
     </div>

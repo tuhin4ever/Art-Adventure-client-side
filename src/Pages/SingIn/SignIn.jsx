@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 
 const SignIn = () => {
+  window.scrollTo(0, 0);
   const { singIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
