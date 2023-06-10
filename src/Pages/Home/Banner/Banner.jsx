@@ -8,7 +8,7 @@ const Banner = () => {
       dynamicHeight
       className="text-center"
       autoPlay
-      interval={4000}
+      interval={3000}
       infiniteLoop
     >
       <div className="relative">
