@@ -16,8 +16,8 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const [passwordError, setPasswordError] = useState("");
+  const [isButtonDisabled, setButtonDisabled] = useState(false);
 
-  // const watchPassword = watch("password", "");
 
   const onSubmit = (data) => {
     if (data.password !== data.confirmPassword) {
@@ -25,6 +25,7 @@ const SignUp = () => {
       return;
     }
 
+    setButtonDisabled(true); // Disable the button on form submit
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       if (loggedUser) {
@@ -177,6 +178,7 @@ const SignUp = () => {
                   className="btn btn-outline btn-primary rounded-full"
                   type="submit"
                   value="Sign Up"
+                  disabled={isButtonDisabled} //Disable the button based on the state
                 />
               </div>
             </form>
