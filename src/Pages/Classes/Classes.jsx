@@ -1,10 +1,35 @@
+import { useState, useEffect } from "react";
 import SectionTitle from "../../Shared/SectionTitle/SectionTirle";
 import useClasses from "../../hooks/useClasses";
 import { ClassesCard } from "./ClassesCard";
 import { Parallax } from "react-parallax";
+
 export const Classes = () => {
   const [classes] = useClasses();
-  // console.log(classes);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    scrollToTop();
+  }, [currentPage]);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = classes.slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalPages = Math.ceil(classes.length / itemsPerPage);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
     <>
       <Parallax
@@ -32,11 +57,40 @@ export const Classes = () => {
       <SectionTitle
         heading="Art Adventure Summer Camp School"
         subHeading="Join the Artistic Journey this Summer"
-      ></SectionTitle>
+      />
       <div className="grid md:grid-cols-3 my-container gap-10">
-        {classes.map((item) => (
-          <ClassesCard key={item._id} item={item}></ClassesCard>
+        {currentItems.map((item) => (
+          <ClassesCard key={item._id} item={item} />
         ))}
+      </div>
+      <div className="text-center mb-10">
+        <div className="join bg-transparent">
+          <button
+            className="join-item btn"
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            «
+          </button>
+          {Array.from({ length: totalPages }, (_, index) => (
+            <button
+              key={index + 1}
+              className={`join-item btn ${
+                currentPage === index + 1 ? "dark:text-secondary-focus" : ""
+              }`}
+              onClick={() => paginate(index + 1)}
+            >
+              Page {index + 1}
+            </button>
+          ))}
+          <button
+            className="join-item btn"
+            onClick={() => paginate(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            »
+          </button>
+        </div>
       </div>
     </>
   );
