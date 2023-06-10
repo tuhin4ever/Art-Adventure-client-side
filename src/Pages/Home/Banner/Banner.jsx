@@ -3,7 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./Banner.css";
 const Banner = () => {
   return (
-    <Carousel dynamicHeight className="text-center">
+    <Carousel dynamicHeight className="text-center" autoPlay interval={3000} infiniteLoop >
       <div className="relative">
         <div className="absolute top-0 left-0 h-full w-full bg-black opacity-60"></div>
         <div className="absolute my-60 mx-auto w-full text-center text-white z-10">

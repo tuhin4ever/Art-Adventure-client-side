@@ -4,6 +4,7 @@ import { HiBars3BottomRight, HiOutlineXMark } from "react-icons/hi2";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useSelected from "../../hooks/useSelected";
+import DarkMode from "./DarkMode/DarkMode";
 const NavBar = () => {
   const [selectCourse] = useSelected();
   //   const user = false;
@@ -84,6 +85,9 @@ const NavBar = () => {
               >
                 Classes
               </NavLink>
+            </li>
+            <li className="text-red-300 hover:text-accent-focus">
+              <DarkMode></DarkMode>
             </li>
           </ul>
           <ul className="items-center hidden space-x-8 lg:flex mr-10">
@@ -217,6 +221,9 @@ const NavBar = () => {
                         >
                           Classes
                         </NavLink>
+                      </li>
+                      <li className="text-red-300 hover:text-accent-focus">
+                        <DarkMode></DarkMode>
                       </li>
                       <li>
                         {!user ? (
