@@ -1,18 +1,18 @@
 import { NavLink, Outlet } from "react-router-dom";
 import {
-  FaShoppingCart,
   FaWallet,
-  FaCalendarAlt,
   FaHome,
   FaUtensils,
   FaUsers,
   FaBook,
+  FaUserShield,
+  FaUserCheck,
+  FaUserTie,
 } from "react-icons/fa";
 import {
   HiOutlineMail,
   HiOutlineMenu,
   HiOutlineMenuAlt2,
-  HiShoppingBag,
 } from "react-icons/hi";
 import useSelected from "../hooks/useSelected";
 import useAdmin from "../hooks/useAdmin";
@@ -37,7 +37,7 @@ const Dashboard = () => {
           htmlFor="my-drawer-2"
           className="btn btn-sm drawer-button lg:hidden ml-72  mt-20 mb-4"
         >
-          Open drawer
+          Open
         </label>
         <Outlet></Outlet>
       </div>
@@ -122,8 +122,8 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/reservation">
-                  <FaCalendarAlt />
-                  Reservation
+                  <FaUserShield />
+                  Enrolled Classes
                 </NavLink>
               </li>
               <li>
@@ -134,10 +134,12 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/myClasses">
-                  <FaShoppingCart />
-                  My Cart
+                  <FaUserCheck />
+                  Selected Classes
                   {selectCourse?.length > 0 && (
-                    <span className="badge">+{selectCourse.length}</span>
+                    <span className="badge items-center Kalam-text  text-white border-transparent bg-error-content">
+                      +{selectCourse.length}
+                    </span>
                   )}
                 </NavLink>
               </li>
@@ -151,21 +153,21 @@ const Dashboard = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/menu">
-              <HiOutlineMenuAlt2 />
-              Menu
+            <NavLink to="/instructors">
+              <FaUserTie />
+              Instructor
             </NavLink>
           </li>
           <li>
-            <NavLink to="/order/Salad">
-              <HiShoppingBag />
-              Shop
+            <NavLink to="/classes">
+              <HiOutlineMenuAlt2 />
+              Classes
             </NavLink>
           </li>
           <li>
             <NavLink to="/order/Salad">
               <HiOutlineMail />
-              Contact
+              About Us
             </NavLink>
           </li>
         </ul>

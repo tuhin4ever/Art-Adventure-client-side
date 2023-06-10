@@ -91,57 +91,50 @@ const CheckoutForm = ({ price, selectCourse }) => {
           });
         }
       });
-
-      // axiosSecure.post("/payments", payment).then((res) => {
-      //   console.log(res.data);
-      //   if (res.data.insertResult.insertedId) {
-      //     Swal.fire({
-      //       title: "Payment Successful.",
-      //       showClass: {
-      //         popup: "animate__animated animate__fadeInDown",
-      //       },
-      //       hideClass: {
-      //         popup: "animate__animated animate__fadeOutUp",
-      //       },
-      //     });
-      //   }
-      // });
     }
   };
 
   return (
     <>
-      <form className="w-2/5  mx-auto text-center" onSubmit={handleSubmit}>
-        <CardElement
-          options={{
-            style: {
-              base: {
-                fontSize: "16px",
-                color: "#424770",
-                "::placeholder": {
-                  color: "#aab7c4",
+      <form
+        className="md:w-5/12  mx-auto text-center "
+        onSubmit={handleSubmit}
+      >
+        <div className="w-4/5 mx-auto bg-gray-200 rounded-lg p-4">
+          <CardElement
+            options={{
+              style: {
+                base: {
+                  fontSize: "16px",
+                  color: "#424770",
+                  "::placeholder": {
+                    color: "#aab7c4",
+                  },
+                },
+                invalid: {
+                  color: "#9e2146",
                 },
               },
-              invalid: {
-                color: "#9e2146",
-              },
-            },
-          }}
-        />
-        {cardError && <p className="text-red-500 ml-8 my-3">{cardError}</p>}
+            }}
+          />
+        </div>
+        <div className="text-center">
+        {cardError && <p className="text-red-500 ml-8 mt-3">{cardError}</p>}
         {transactionId && (
           <p className="text-green-500">
             Transaction complete with transactionId: {transactionId}
           </p>
         )}
         <button
-          className="btn"
+          className="mt-3 btn btn-outline border-0 border-b-4 border-red-900 text-lg text-base-content font-bold py-2 px-6 rounded-full"
           type="submit"
           disabled={!stripe || !clientSecret || processing}
         >
           Pay
         </button>
+      </div>
       </form>
+      
     </>
   );
 };

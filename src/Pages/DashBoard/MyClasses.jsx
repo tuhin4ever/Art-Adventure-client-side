@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import useSelected from "../../hooks/useSelected";
 import Swal from "sweetalert2";
-import { FaDollarSign, FaTrashAlt } from "react-icons/fa";
+import {  FaTrashAlt } from "react-icons/fa";
 
 const MyClasses = () => {
   const [selectCourse, refetch] = useSelected();
@@ -11,12 +11,12 @@ const MyClasses = () => {
   const handleDelete = (item) => {
     Swal.fire({
       title: "Are you sure?",
-      text: `Do you want to delete ${item.name}?`,
+      text: `Do You Want to Cancel Course  ${item.name}?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Yes, Removed it!",
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5000/selectCourse/${item._id}`, {
@@ -27,7 +27,7 @@ const MyClasses = () => {
             console.log(data);
             if (data.deletedCount > 0) {
               refetch();
-              Swal.fire("Deleted!", `${item.name} deleted.`, "success");
+              Swal.fire("Cancel!", `${item.name} Removed.`, "success");
             }
           });
       }
@@ -41,9 +41,8 @@ const MyClasses = () => {
           <h3 className="text-3xl text-center Permanent-text">
             Total Classes: {selectCourse.length}
           </h3>
-          <h3 className="text-3xl text-center flex items-center Permanent-text">
-            Total course price: {total}{" "}
-            <FaDollarSign className="text-green-500" />
+          <h3 className="text-3xl text-center  Permanent-text">
+            Total course price : {total} $
           </h3>
         </div>
         <div className="p-4">
@@ -74,7 +73,9 @@ const MyClasses = () => {
                   <td>
                     <button>
                       <Link state={item} to="/dashboard/payment">
-                        <button className="btn glass text-base-content btn-sm rounded">PAY</button>
+                        <button className="btn glass text-base-content btn-sm rounded">
+                          PAY
+                        </button>
                       </Link>
                     </button>
                   </td>

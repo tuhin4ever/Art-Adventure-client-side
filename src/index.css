@@ -8,8 +8,8 @@
 .Kalam-text {
   font-family: "Kalam", cursive !important;
 }
-.Permanent-text{
-  font-family: 'Cinzel', serif;
+.Permanent-text {
+  font-family: "Cinzel", serif;
 }
 .Prism-text {
   font-family: "Tilt Prism", cursive;
@@ -24,10 +24,8 @@
 .default {
   @apply font-medium tracking-wide text-primary-content transition-colors duration-200 hover:text-accent-focus;
 }
-.drawer-side a.active{
-  color: #f42a07;
-  border-right: 3px solid indigo;
-
+.drawer-side a.active {
+  color: orange;
 }
 .drawer-side a {
   background-color: transparent;

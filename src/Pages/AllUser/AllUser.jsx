@@ -1,8 +1,8 @@
-import { FaTrashAlt,  } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
-
+import { FcMakeDecision } from "react-icons/fc";
 const AllUsers = () => {
   const [axiosSecure] = useAxiosSecure();
 
@@ -24,7 +24,7 @@ const AllUsers = () => {
             text: `${user.name} is an Admin Now!`,
             icon: "success",
             showConfirmButton: false,
-            timer: 2000, //
+            timer: 2000,
           });
         }
       });
@@ -77,10 +77,12 @@ const AllUsers = () => {
 
   return (
     <div className="w-full">
-      <div className="h-screen bg-gray-100">
-        <h3 className="text-3xl font-semibold">Total Users: {users.length}</h3>
+      <div className="h-screen ">
+        <h3 className="text-3xl font-semibold text-center">
+          Number of Users : {users.length}
+        </h3>
         <div className="overflow-x-auto">
-          <table className="table table-zebra w-full bg-white rounded-lg">
+          <table className="table  w-full  rounded-lg">
             <thead>
               <tr>
                 <th className="py-2">#</th>
@@ -101,12 +103,16 @@ const AllUsers = () => {
                       "admin"
                     ) : (
                       <div className="dropdown dropdown-right">
-                        <label tabIndex={0} className="btn m-1">
+                        <label
+                          tabIndex={0}
+                          className=" btn btn-outline border btn-sm border-red-900  text-base-content  py-2 px-6 rounded-full"
+                        >
+                          <FcMakeDecision></FcMakeDecision>
                           Make
                         </label>
                         <ul
                           tabIndex={0}
-                          className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                          className="dropdown-content menu p-2 shadow bg-base-300 rounded-box w-52"
                         >
                           <li>
                             <button onClick={() => handleMakeAdmin(user)}>

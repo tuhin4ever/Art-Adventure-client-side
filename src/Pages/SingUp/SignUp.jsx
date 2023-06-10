@@ -11,14 +11,14 @@ const SignUp = () => {
     register,
     handleSubmit,
     formState: { errors },
-    watch, // Add watch function from react-hook-form
+
   } = useForm();
   const { createUser, updateUserProfile, setReload } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const [passwordError, setPasswordError] = useState("");
 
-  const watchPassword = watch("password", "");
+  // const watchPassword = watch("password", "");
 
   const onSubmit = (data) => {
     if (data.password !== data.confirmPassword) {
