@@ -15,7 +15,7 @@ const useSelected = () => {
     // enabled: !!user?.email && !!localStorage.getItem("access-token"),
     queryFn: async () => {
       const response = await axiosSecure(`/selectCourse?email=${user?.email}`);
-      console.log("res from axios", response);
+      // console.log("res from axios", response);
       return response.data;
     },
   });

@@ -4,9 +4,8 @@ import { ClassesCard } from "./ClassesCard";
 import { Parallax } from "react-parallax";
 export const Classes = () => {
   const [classes] = useClasses();
-  console.log(classes);
+  // console.log(classes);
   return (
-    // <h3>class</h3>
     <>
       <Parallax
         blur={{ min: -50, max: 50 }}

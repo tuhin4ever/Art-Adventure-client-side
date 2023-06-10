@@ -9,10 +9,10 @@ const useStudent = () => {
     //   use axios secure with react query
     const { data: isStudent, isLoading: isStudentLoading } = useQuery({
       queryKey: ["isStudent", user?.email],
-      // enabled: !!user?.email && !!localStorage.getItem("access-token"),
+      enabled: !!user?.email && !!localStorage.getItem("access-token"),
       queryFn: async () => {
         const res = await axiosSecure.get(`/users/student/${user?.email}`);
-        console.log("is student response", res);
+        // console.log("is student response", res);
         return res.data.student;
       },
     });

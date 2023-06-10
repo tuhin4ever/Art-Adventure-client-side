@@ -41,9 +41,9 @@ const Dashboard = () => {
         </label>
         <Outlet></Outlet>
       </div>
-      <div className="drawer-side fixed top-0 left-0 h-screen w-80 bg-primary-content text-base-content">
+      <div className="drawer-side  top-0 left-0 h-screen w-80  text-base-content">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 bg-primary-content text-base-content h-screen">
+        <ul className="menu p-4 w-80  text-base-content h-screen">
           {isAdmin && (
             <>
               <li>

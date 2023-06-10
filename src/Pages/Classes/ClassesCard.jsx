@@ -67,7 +67,7 @@ export const ClassesCard = ({ item }) => {
         <FaDollarSign className="text-green-600" /> {price}
       </p>
       <div className="card-body -mt-10">
-        <h2 className="card-title font-medium text-slate-900 text-center Permanent-text mx-auto">
+        <h2 className="card-title font-medium text-base-content text-center Permanent-text mx-auto">
           {name}
         </h2>
         <p className="font-semibold text-2xl flex gap-1">
@@ -86,7 +86,7 @@ export const ClassesCard = ({ item }) => {
           <button
             onClick={() => handleAddSelect(item)}
             disabled={available_seats === 0 || isAdmin}
-            className={`btn btn-outline border-0 border-b-4 border-red-900 text-lg text-slate-800 font-bold py-2 px-6 rounded-full ${
+            className={`btn btn-outline border-0 border-b-4 border-red-900 text-lg text-base-content font-bold py-2 px-6 rounded-full ${
               available_seats === 0 ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >

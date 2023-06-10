@@ -3,8 +3,10 @@ import { useContext, useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = ({ price, selectCourse }) => {
+  const navigate = useNavigate();
   const stripe = useStripe();
   const elements = useElements();
   const { user } = useContext(AuthContext);
@@ -81,7 +83,7 @@ const CheckoutForm = ({ price, selectCourse }) => {
         // console.log(res.data);
         if (res.data.insertResult) {
           // DISPLAY SUCCESS MESSAGE
-          // navigate("/dashboard/myselectCourse");
+          navigate("/");
           Swal.fire({
             icon: "success",
             title: "Payment Successful",

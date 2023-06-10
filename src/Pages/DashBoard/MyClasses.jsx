@@ -1,24 +1,58 @@
 import { Link } from "react-router-dom";
 
 import useSelected from "../../hooks/useSelected";
+import Swal from "sweetalert2";
+import { FaDollarSign, FaTrashAlt } from "react-icons/fa";
 
 const MyClasses = () => {
-  const [selectCourse] = useSelected();
+  const [selectCourse, refetch] = useSelected();
   const total = selectCourse.reduce((sum, item) => sum + item.price, 0);
+
+  const handleDelete = (item) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: `Do you want to delete ${item.name}?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/selectCourse/${item._id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              refetch();
+              Swal.fire("Deleted!", `${item.name} deleted.`, "success");
+            }
+          });
+      }
+    });
+  };
+
   return (
     <div className="w-full">
-      <div className="h-screen bg-gray-100">
-        <div className="uppercase font-semibold h-16 flex justify-evenly items-center bg-gray-200">
-          <h3 className="text-3xl">Total items: {selectCourse.length}</h3>
-          <h3 className="text-3xl">Total Price: ${total}</h3>
+      <div className="h-screen">
+        <div className="uppercase font-semibold h-16 flex justify-evenly items-center ">
+          <h3 className="text-3xl text-center Permanent-text">
+            Total Classes: {selectCourse.length}
+          </h3>
+          <h3 className="text-3xl text-center flex items-center Permanent-text">
+            Total course price: {total}{" "}
+            <FaDollarSign className="text-green-500" />
+          </h3>
         </div>
         <div className="p-4">
-          <table className="table w-full bg-white rounded-lg">
+          <table className="table w-full  rounded-lg">
             <thead>
               <tr>
-                <th className="py-2">No.</th>
-                <th>Food</th>
-                <th>Item Name</th>
+                <th className="py-2">#</th>
+                <th>CLass</th>
+                <th>Course Name</th>
                 <th>Price</th>
                 <th>Payment</th>
                 <th>Action</th>
@@ -40,15 +74,16 @@ const MyClasses = () => {
                   <td>
                     <button>
                       <Link state={item} to="/dashboard/payment">
-                        <button  className="btn-warning btn-sm">PAY</button>
-                      
+                        <button className="btn glass text-base-content btn-sm rounded">PAY</button>
                       </Link>
-
                     </button>
                   </td>
                   <td>
-                    <button className="btn btn-ghost bg-red-600 text-white">
-                      x
+                    <button
+                      onClick={() => handleDelete(item)}
+                      className="text-base-content"
+                    >
+                      <FaTrashAlt className="text-xl" />
                     </button>
                   </td>
                 </tr>
