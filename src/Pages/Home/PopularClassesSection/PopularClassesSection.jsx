@@ -10,6 +10,8 @@ const PopularClassesSection = () => {
       .then((data) => setPopularClasses(data));
   }, []);
 
+
+  console.log("popular classes", popularClasses)
   return (
     <div className="container mx-auto px-4  ">
       <SectionTitle
@@ -17,7 +19,7 @@ const PopularClassesSection = () => {
         subHeading="Arts Adventure"
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        {popularClasses.map((classItem) => (
+        {popularClasses.slice(0, 6).map((classItem) => (
           <div
             key={classItem._id}
             className="bg-white rounded-lg shadow-lg overflow-hidden relative"
@@ -31,6 +33,9 @@ const PopularClassesSection = () => {
               <h3 className="text-lg font-semibold mb-2 text-white">
                 {classItem.name}
               </h3>
+              <p className="text-white">Price : {classItem.price}</p>
+              <p className="text-white">Available seats : {classItem.available_seats}</p>
+              <p className="text-white">enrolled: {classItem.enrolled}</p>
             </div>
           </div>
         ))}
