@@ -70,7 +70,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/allusers">
+                <NavLink to="/dashboard/allUsers">
                   <FaUsers />
                   All User
                 </NavLink>
@@ -87,8 +87,8 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/additem">
-                  <FaUtensils /> Add Item
+                <NavLink to="/dashboard/addItem">
+                  <FaUtensils /> Add Class
                 </NavLink>
               </li>
               <li>
@@ -104,7 +104,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/allusers">
+                <NavLink to="/dashboard/allUsers">
                   <FaUsers />
                   All User
                 </NavLink>
@@ -133,7 +133,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/myClasses">
+                <NavLink to="/dashboard/selectedClasses">
                   <FaUserCheck />
                   Selected Classes
                   {selectCourse?.length > 0 && (

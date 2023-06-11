@@ -6,13 +6,14 @@ import SignIn from "../Pages/SingIn/SignIn";
 import { Classes } from "../Pages/Classes/Classes";
 import Dashboard from "../LayOut/Dashboard";
 import PrivateRoute from "./PrivateRoute";
-import MyClasses from "../Pages/DashBoard/MyClasses";
 
 import AllUsers from "../Pages/AllUser/AllUser";
 import AdminRoute from "./AdminRoute";
 import ManageClasses from "../Pages/DashBoard/Admin/ManageClasses";
 import Payment from "../Pages/DashBoard/Payment/Payment";
 import Instructors from "../Pages/Instructors/Instructors";
+import SelectedClasses from "../Pages/DashBoard/SelectedClasses";
+import AddClass from "../Pages/DashBoard/Instructor/AddClass";
 
 const router = createBrowserRouter([
   {
@@ -51,8 +52,8 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: "myClasses",
-        element: <MyClasses></MyClasses>,
+        path: "selectedClasses",
+        element: <SelectedClasses />,
       },
       {
         path: "payment",
@@ -74,6 +75,11 @@ const router = createBrowserRouter([
             <ManageClasses></ManageClasses>
           </AdminRoute>
         ),
+      },
+      // instructor routes
+      {
+        path: "addItem",
+        element: <AddClass></AddClass>,
       },
     ],
   },

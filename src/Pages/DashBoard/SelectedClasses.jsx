@@ -4,7 +4,7 @@ import useSelected from "../../hooks/useSelected";
 import Swal from "sweetalert2";
 import {  FaTrashAlt } from "react-icons/fa";
 
-const MyClasses = () => {
+const SelectedClasses = () => {
   const [selectCourse, refetch] = useSelected();
   const total = selectCourse.reduce((sum, item) => sum + item.price, 0);
 
@@ -97,4 +97,4 @@ const MyClasses = () => {
   );
 };
 
-export default MyClasses;
+export default SelectedClasses;
