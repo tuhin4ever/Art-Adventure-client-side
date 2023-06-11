@@ -2,12 +2,12 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 
-// import useAxiosSecure from "../../../hooks/useAxiosSecure";
-// import Swal from "sweetalert2";
+import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AddClass = () => {
   const { user } = useAuth();
-  // const [axiosSecure] = useAxiosSecure();
+  const [axiosSecure] = useAxiosSecure();
   const {
     reset,
     register,
@@ -20,15 +20,15 @@ const AddClass = () => {
     data.status = "pending";
     data.enrolled = 0;
     console.log(data);
-    // axiosSecure.post("/addClass", data).then((response) => {
-    //   console.log(response);
-    //   Swal.fire({
-    //     icon: "success",
-    //     title: "Class added successfully",
-    //     showConfirmButton: false,
-    //     timer: 1500,
-    //   });
-    // });
+    axiosSecure.post("/addClass", data).then((response) => {
+      console.log(response);
+      Swal.fire({
+        icon: "success",
+        title: "Class added successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    });
     reset();
   };
 
@@ -85,7 +85,10 @@ const AddClass = () => {
           <br />
           {errors.exampleRequired && <span>This field is required</span>}
           <div className="text-center">
-            <input className="w-4/12 btn btn-primary btn-sm text-white Permanent-text rounded-lg   bg-gradient-to-r from-red-500 to-red-900 hover:from-red-900 hover:to-red-500" type="submit" />
+            <input
+              className="w-4/12 btn btn-primary btn-sm text-white Permanent-text rounded-lg   bg-gradient-to-r from-red-500 to-red-900 hover:from-red-900 hover:to-red-500"
+              type="submit"
+            />
           </div>
         </form>
       </div>

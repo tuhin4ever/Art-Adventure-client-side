@@ -15,6 +15,7 @@ import AddClass from "../Pages/DashBoard/Instructor/AddClass";
 import SelectedClasses from "../Pages/DashBoard/Student/SelectedClasses";
 import EnrolledClasses from "../Pages/DashBoard/Student/EnrolledClasses";
 import PaymentHistory from "../Pages/DashBoard/Student/PaymentHistory";
+import MyClasses from "../Pages/DashBoard/Instructor/MyClasses";
 
 const router = createBrowserRouter([
   {
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
         path: "addItem",
         element: <AddClass></AddClass>,
       },
+      {
+        path: "myClasses",
+        element: <MyClasses></MyClasses>,
+      }
     ],
   },
 ]);
