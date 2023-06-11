@@ -100,7 +100,7 @@ const NavBar = () => {
               </NavLink>
             ) : (
               <NavLink
-                to="/dashboard"
+                to="/dashboard/home"
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 <div className="flex">

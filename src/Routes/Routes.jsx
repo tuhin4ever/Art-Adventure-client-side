@@ -16,6 +16,7 @@ import SelectedClasses from "../Pages/DashBoard/Student/SelectedClasses";
 import EnrolledClasses from "../Pages/DashBoard/Student/EnrolledClasses";
 import PaymentHistory from "../Pages/DashBoard/Student/PaymentHistory";
 import MyClasses from "../Pages/DashBoard/Instructor/MyClasses";
+import DashHome from "../Pages/DashBoard/DashHome/DashHome";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       </PrivateRoute>
     ),
     children: [
+      {
+        path: "home",
+        element: <DashHome></DashHome>,
+      },
       {
         path: "selectedClasses",
         element: <SelectedClasses />,

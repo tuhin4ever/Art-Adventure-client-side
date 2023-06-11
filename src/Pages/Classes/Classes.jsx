@@ -4,8 +4,16 @@ import useClasses from "../../hooks/useClasses";
 import { ClassesCard } from "./ClassesCard";
 import { Parallax } from "react-parallax";
 
+const UniqueSpinner = () => {
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <div className="border-t-4 border-red-800 rounded-full animate-spin w-12 h-12"></div>
+    </div>
+  );
+};
+
 export const Classes = () => {
-  const [classes] = useClasses();
+  const [classes, isLoading] = useClasses();
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 9;
 
@@ -29,6 +37,10 @@ export const Classes = () => {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  if (isLoading) {
+    return <UniqueSpinner />;
+  }
 
   return (
     <>
