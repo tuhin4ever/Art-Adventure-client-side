@@ -113,18 +113,6 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/enrolledClasses">
-                  <FaUserShield />
-                  Enrolled Classes
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/history">
-                  <FaWallet />
-                  Payment History
-                </NavLink>
-              </li>
-              <li>
                 <NavLink to="/dashboard/selectedClasses">
                   <FaUserCheck />
                   Selected Classes
@@ -133,6 +121,18 @@ const Dashboard = () => {
                       +{selectCourse.length}
                     </span>
                   )}
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/enrolledClasses">
+                  <FaUserShield />
+                  Enrolled Classes
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/dashboard/paymentHistory">
+                  <FaWallet />
+                  Payment History
                 </NavLink>
               </li>
             </>

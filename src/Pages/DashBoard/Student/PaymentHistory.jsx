@@ -1,13 +1,15 @@
+
 import { useState, useEffect } from "react";
 import useAuth from "../../../hooks/useAuth";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 
-const EnrolledClasses = () => {
+
+const PaymentHistory = () => {
   const { user } = useAuth();
-  const [enrolledClasses, setEnrolledClasses] = useState([]);
+  const [paymentHistory, setPaymentHistory] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/paidClasses?email=${user.email}`, {
+    fetch(`http://localhost:5000/paymentHistory?email=${user.email}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -16,17 +18,18 @@ const EnrolledClasses = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setEnrolledClasses(data);
+        console.log(data);
+        setPaymentHistory(data);
       })
       .catch((error) => {
-        console.log("Error retrieving enrolled classes:", error);
+        console.log("Error retrieving payment history:", error);
       });
   }, [user.email]);
 
-  console.log("enrolled classes", enrolledClasses);
+    console.log("payment history", paymentHistory);
   return (
     <div className="h-screen w-full text-center mt-10">
-      <SectionTitle subHeading="Enrolled Classes" />
+      <SectionTitle subHeading="Payment History" />
       <div className="overflow-x-auto ">
         <table className="table w-full">
           <thead className="text-center">
@@ -35,11 +38,11 @@ const EnrolledClasses = () => {
               <th>Image</th>
               <th>Name</th>
               <th>Price</th>
-              <th>status</th>
+              <th>Transaction ID</th>
             </tr>
           </thead>
           <tbody className="text-center">
-            {enrolledClasses.map((item, index) => (
+            {paymentHistory.map((item, index) => (
               <tr key={item._id}>
                 <td className="py-2">{index + 1}</td>
                 <td>
@@ -51,7 +54,7 @@ const EnrolledClasses = () => {
                 </td>
                 <td>{item.className}</td>
                 <td>{item.price} $</td>
-                <td className="text-warning">{item.status}</td>
+                <td className="text-green-500">{item.transactionId}</td>
               </tr>
             ))}
           </tbody>
@@ -61,4 +64,4 @@ const EnrolledClasses = () => {
   );
 };
 
-export default EnrolledClasses;
+export default PaymentHistory;

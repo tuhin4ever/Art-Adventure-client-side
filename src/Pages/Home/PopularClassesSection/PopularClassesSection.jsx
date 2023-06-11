@@ -19,7 +19,7 @@ const PopularClassesSection = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {popularClasses.map((classItem) => (
           <div
-            key={classItem.id}
+            key={classItem._id}
             className="bg-white rounded-lg shadow-lg overflow-hidden relative"
           >
             <img

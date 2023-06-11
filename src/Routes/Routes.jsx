@@ -6,16 +6,15 @@ import SignIn from "../Pages/SingIn/SignIn";
 import { Classes } from "../Pages/Classes/Classes";
 import Dashboard from "../LayOut/Dashboard";
 import PrivateRoute from "./PrivateRoute";
-
 import AllUsers from "../Pages/AllUser/AllUser";
 import AdminRoute from "./AdminRoute";
 import ManageClasses from "../Pages/DashBoard/Admin/ManageClasses";
 import Payment from "../Pages/DashBoard/Payment/Payment";
 import Instructors from "../Pages/Instructors/Instructors";
-
 import AddClass from "../Pages/DashBoard/Instructor/AddClass";
 import SelectedClasses from "../Pages/DashBoard/Student/SelectedClasses";
 import EnrolledClasses from "../Pages/DashBoard/Student/EnrolledClasses";
+import PaymentHistory from "../Pages/DashBoard/Student/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "enrolledClasses",
         element: <EnrolledClasses></EnrolledClasses>,
+      },
+      {
+        path: "paymentHistory",
+        element: <PaymentHistory/>
       },
       // admin routes
       {
