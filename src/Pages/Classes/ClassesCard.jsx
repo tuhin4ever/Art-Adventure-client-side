@@ -13,7 +13,7 @@ export const ClassesCard = ({ item }) => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const [isAdmin] = useAdmin();
   const handleAddSelect = () => {
     if (user && user.email) {
@@ -48,7 +48,7 @@ export const ClassesCard = ({ item }) => {
         confirmButtonText: "Sign in Now!",
       }).then((result) => {
         if (result.isConfirmed) {
-          navigate("/signIn", { state: { from: location  }  }  );
+          navigate("/signIn", { state: { from: location } });
         }
       });
     }

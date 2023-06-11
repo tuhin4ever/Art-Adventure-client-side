@@ -40,15 +40,18 @@ export const Classes = () => {
       >
         <div className="hero h-[700px]">
           <div className="hero-overlay bg-opacity-40"></div>
-          <div className="hero-content text-center text-neutral-content">
-            <div className="max-w-md">
-              <h1 className="mb-5 text-5xl font-bold uppercase Permanent-text">
+          <div className="hero-content text-center ">
+            <div className="text-white">
+              <h1 className="mb-5 Kalam-text text-5xl font-bold uppercase Permanent-text">
                 All Classes
               </h1>
-              <p className="mb-5 Kalam-text text-xl">
-                Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                assumenda excepturi exercitationem quasi. In deleniti eaque aut
-                repudiandae et a id nisi.
+              
+              <p className="mb-5 Permanent-text font-semibold  text-2xl t">
+                Unleash creativity, explore new mediums, and make lasting
+                memories. From painting to sculpture, our classes inspire young
+                artists. Engage in fun outdoor activities, build friendships,
+                and embrace adventure. A safe and supportive environment awaits
+                your child this summer.
               </p>
             </div>
           </div>
