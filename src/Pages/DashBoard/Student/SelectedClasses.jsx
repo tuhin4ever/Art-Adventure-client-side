@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import useSelected from "../../../hooks/useSelected";
 import Swal from "sweetalert2";
-import {  FaTrashAlt } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 
 const SelectedClasses = () => {
   const [selectCourse, refetch] = useSelected();
@@ -47,7 +47,7 @@ const SelectedClasses = () => {
         </div>
         <div className="p-4">
           <table className="table w-full  rounded-lg">
-            <thead>
+            <thead className="text-center">
               <tr>
                 <th className="py-2">#</th>
                 <th>CLass</th>
@@ -57,7 +57,7 @@ const SelectedClasses = () => {
                 <th>Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="text-center">
               {selectCourse.map((item, index) => (
                 <tr key={item._id}>
                   <td className="py-2">{index + 1}</td>
@@ -69,7 +69,7 @@ const SelectedClasses = () => {
                     </div>
                   </td>
                   <td>{item.name}</td>
-                  <td>${item.price}</td>
+                  <td>{item.price} $</td>
                   <td>
                     <button>
                       <Link state={item} to="/dashboard/payment">

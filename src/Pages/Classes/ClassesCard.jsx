@@ -31,7 +31,7 @@ export const ClassesCard = ({ item }) => {
             refetch();
             Swal.fire({
               icon: "success",
-              title: "Class added to cart successfully",
+              title: "Select for enrollment",
               showConfirmButton: false,
               timer: 2000,
             });
@@ -63,8 +63,8 @@ export const ClassesCard = ({ item }) => {
       <figure className="p-4">
         <img src={image} alt={name} className="rounded-xl" />
       </figure>
-      <p className="absolute right-0 mr-7 mt-7 rounded px-4 bg-red-900 text-white flex items-center">
-        <FaDollarSign className="text-green-600" /> {price}
+      <p className="Kalam-text absolute right-0 mr-7 mt-7 rounded px-4 bg-red-900 text-white flex items-center">
+        price: {price} <FaDollarSign className="text-green-600" />
       </p>
       <div className="card-body -mt-10">
         <h2 className="card-title font-medium text-base-content text-center Permanent-text mx-auto">
@@ -86,11 +86,11 @@ export const ClassesCard = ({ item }) => {
           <button
             onClick={() => handleAddSelect(item)}
             disabled={available_seats === 0 || isAdmin}
-            className={`btn btn-outline border-0 border-b-4 border-red-900 text-lg text-base-content font-bold py-2 px-6 rounded-full ${
+            className={`btn btn-outline border-0 border-b-4 border-red-900 text-lg text-base-content font-light py-2 px-6 rounded-full ${
               available_seats === 0 ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >
-            Select
+            Enroll Now
           </button>
         </div>
       </div>

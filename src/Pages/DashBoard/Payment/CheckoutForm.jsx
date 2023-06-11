@@ -86,7 +86,7 @@ const CheckoutForm = ({ price, selectCourse }) => {
         // console.log(res.data);
         if (res.data.insertResult) {
           // DISPLAY SUCCESS MESSAGE
-          navigate("/");
+          navigate("/dashboard/enrolledClasses");
           Swal.fire({
             icon: "success",
             title: "Payment Successful",
