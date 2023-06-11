@@ -3,6 +3,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { FcMakeDecision } from "react-icons/fc";
+import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 const AllUsers = () => {
   const [axiosSecure] = useAxiosSecure();
 
@@ -77,15 +78,13 @@ const AllUsers = () => {
 
   return (
     <div className="w-full flex justify-center">
-      <div className="h-screen w-full ">
-        <h3 className="text-3xl font-semibold text-center">
-          Number of Users : {users.length}
-        </h3>
+      <div className="h-screen w-full mt-10">
+        <SectionTitle heading="All Users" subHeading="All Users"></SectionTitle>
         <div className="overflow-x-auto">
           <table className="table  w-full  rounded-lg">
             <thead>
               <tr className="text-center">
-                <th className="py-2">#</th>
+                <th className="py-2">Total user:{users.length}</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Role</th>

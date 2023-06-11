@@ -36,7 +36,7 @@ const SelectedClasses = () => {
 
   return (
     <div className="w-full">
-      <div className="h-screen">
+      <div className="h-screen mt-10">
         <div className="uppercase font-semibold h-16 flex justify-evenly items-center ">
           <h3 className="text-3xl text-center Permanent-text">
             Total Classes: {selectCourse.length}

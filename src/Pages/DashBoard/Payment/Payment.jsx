@@ -15,7 +15,7 @@ const Payment = () => {
   }
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen mt-10">
       <SectionTitle
         heading="Payment"
         subHeading="please process"

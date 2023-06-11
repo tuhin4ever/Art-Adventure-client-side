@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import {
   FaWallet,
   FaHome,
@@ -41,8 +41,22 @@ const Dashboard = () => {
         <Outlet></Outlet>
       </div>
       <div className="drawer-side  top-0 left-0 h-screen w-80  text-base-content">
+        <div className="m-2 z-10">
+          <Link to="/" className="inline-flex items-center">
+            <img src="../../../public/Color-feathers.svg" className="w-20" />
+            <div>
+              <span className="text-3xl font-bold tracking-wide text-indigo-700 Caveat-text">
+                Arts Adventure
+              </span>
+              <p className="text-center dark:white text-sm Kalam-text">
+                adventures in creativity
+              </p>
+            </div>
+          </Link>
+        </div>
+
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80  text-base-content h-screen">
+        <ul className="menu mt-12 w-80 text-base-content h-screen">
           {isAdmin && (
             <>
               <li>

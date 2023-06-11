@@ -33,8 +33,8 @@ const AddClass = () => {
   };
 
   return (
-    <div className="w-full relative flex flex-col items-center justify-center min-h-screen">
-      <div className="relative">
+    <div className="w-full relative  flex flex-col items-center justify-center min-h-screen ">
+      <div className="relative h-screen mt-10">
         <SectionTitle heading="Add Class" subHeading="New Classes" />
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
           <div className="flex flex-col md:flex-row mb-4">
