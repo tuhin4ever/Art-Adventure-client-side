@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import useSelected from "../../hooks/useSelected";
+import useSelected from "../../../hooks/useSelected";
 import Swal from "sweetalert2";
 import {  FaTrashAlt } from "react-icons/fa";
 

@@ -78,6 +78,9 @@ const CheckoutForm = ({ price, selectCourse }) => {
         classId: selectCourse.classId, // Include only the specific item's class ID
         status: "service pending",
         className: selectCourse.name, // Include only the specific item's name
+        classPrice: selectCourse.price, // Include only the specific item's price
+        classImage: selectCourse.image, // Include only the specific item's image
+
       };
       axiosSecure.post("/payments", payment).then((res) => {
         // console.log(res.data);
@@ -88,7 +91,6 @@ const CheckoutForm = ({ price, selectCourse }) => {
             icon: "success",
             title: "Payment Successful",
             text: "Your payment has been successfully processed",
-            // button false to prevent auto close
             showConfirmButton: false,
           });
         }
