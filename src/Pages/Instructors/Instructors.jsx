@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import SectionTitle from "../../Shared/SectionTitle/SectionTirle";
+import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import InstructorCard from "./InstructorCard";
 import Contact from "./Contact/Contact";
 const Instructors = () => {

@@ -1,5 +1,7 @@
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
+import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
+
 // import useAxiosSecure from "../../../hooks/useAxiosSecure";
 // import Swal from "sweetalert2";
 
@@ -31,61 +33,62 @@ const AddClass = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-2xl uppercase text-center">Add New Class</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        {/* register your input into the hook by invoking the "register" function */}
-        <div className="flex flex-col md:flex-row">
-          <input
-            className="p-3 m-1 border-2 w-1/2"
-            defaultValue={user.displayName}
-            {...register("instructor")}
-            readOnly
-          />
-          <input
-            className="p-3 m-1 border-2 w-1/2"
-            defaultValue={user.email}
-            {...register("email")}
-            readOnly
-          />
-        </div>
-        <div className="flex flex-col md:flex-row">
-          <input
-            required
-            className="p-3 m-1 border-2 w-1/2"
-            placeholder="Toy Name"
-            {...register("name")}
-          />
-          <input
-            required
-            className="p-3 m-1 border-2 w-1/2"
-            placeholder="Picture URL"
-            {...register("image")}
-          />
-        </div>
-        <br />
-        <div className="flex flex-col md:flex-row">
-          <input
-            type="number"
-            required
-            className="p-3 m-1 border-2 w-1/2"
-            placeholder="Price"
-            {...register("price")}
-          />
-          <input
-            type="number"
-            required
-            className="p-3 m-1 border-2 w-1/2"
-            placeholder="Available Seats"
-            {...register("available_seats")}
-          />
-        </div>
-        <br />
-        {/* errors will return when field validation fails  */}
-        {errors.exampleRequired && <span>This field is required</span>}
-
-        <input className="btn btn-primary" type="submit" />
-      </form>
+    <div className="w-full relative flex flex-col items-center justify-center min-h-screen">
+      <div className="relative">
+        <SectionTitle heading="Add Class" subHeading="New Classes" />
+        <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
+          <div className="flex flex-col md:flex-row mb-4">
+            <input
+              className="p-3 m-1 border-2 rounded-md w-full md:w-auto"
+              defaultValue={user.displayName}
+              {...register("instructor")}
+              readOnly
+            />
+            <input
+              className="p-3 m-1 border-2 rounded-md w-full md:w-auto"
+              defaultValue={user.email}
+              {...register("email")}
+              readOnly
+            />
+          </div>
+          <div className="flex flex-col md:flex-row mb-4">
+            <input
+              required
+              className="p-3 m-1 border-2 rounded-md w-full md:w-auto"
+              placeholder="Toy Name"
+              {...register("name")}
+            />
+            <input
+              required
+              className="p-3 m-1 border-2 rounded-md w-full md:w-auto"
+              placeholder="Picture URL"
+              {...register("image")}
+            />
+          </div>
+          <br />
+          <div className="flex flex-col md:flex-row mb-4">
+            <input
+              type="number"
+              required
+              className="p-3 m-1 border-2 rounded-md w-full md:w-auto"
+              placeholder="Price"
+              {...register("price")}
+            />
+            <input
+              type="number"
+              required
+              className="p-3 m-1 border-2 rounded-md w-full md:w-auto"
+              placeholder="Available Seats"
+              {...register("available_seats")}
+            />
+          </div>
+          <br />
+          {errors.exampleRequired && <span>This field is required</span>}
+          <div className="text-center">
+            <input className="w-4/12 btn btn-primary btn-sm text-white Permanent-text rounded-lg   bg-gradient-to-r from-red-500 to-red-900 hover:from-red-900 hover:to-red-500" type="submit" />
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

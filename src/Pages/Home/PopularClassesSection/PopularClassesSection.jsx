@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import SectionTitle from "../../../Shared/SectionTitle/SectionTirle";
+import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 
 const PopularClassesSection = () => {
   const [popularClasses, setPopularClasses] = useState([]);

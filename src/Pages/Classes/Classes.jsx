@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import SectionTitle from "../../Shared/SectionTitle/SectionTirle";
+import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import useClasses from "../../hooks/useClasses";
 import { ClassesCard } from "./ClassesCard";
 import { Parallax } from "react-parallax";

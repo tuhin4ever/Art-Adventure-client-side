@@ -1,5 +1,5 @@
 import { loadStripe } from "@stripe/stripe-js";
-import SectionTitle from "../../../Shared/SectionTitle/SectionTirle";
+import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 

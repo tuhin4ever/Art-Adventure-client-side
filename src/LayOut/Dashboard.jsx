@@ -2,12 +2,11 @@ import { NavLink, Outlet } from "react-router-dom";
 import {
   FaWallet,
   FaHome,
-  FaUtensils,
   FaUsers,
-  FaBook,
   FaUserShield,
   FaUserCheck,
   FaUserTie,
+  FaEdit,
 } from "react-icons/fa";
 import {
   HiOutlineMail,
@@ -35,7 +34,7 @@ const Dashboard = () => {
         {/* <!-- Page content here --> */}
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-sm drawer-button lg:hidden ml-72  mt-20 mb-4"
+          className="btn btn-sm drawer-button lg:hidden ml-72  mt-20 mb-4 "
         >
           Open
         </label>
@@ -52,23 +51,14 @@ const Dashboard = () => {
                   Admin Home
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/dashboard/additem">
-                  <FaUtensils /> Add Item
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink to="/dashboard/manageClasses">
                   <HiOutlineMenu />
                   Manage Classes
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/dashboard/managebooking">
-                  <FaBook />
-                  Manage Bookings
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink to="/dashboard/allUsers">
                   <FaUsers />
@@ -88,25 +78,13 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/addItem">
-                  <FaUtensils /> Add Class
+                  <FaEdit /> Add Class
                 </NavLink>
               </li>
               <li>
                 <NavLink to="/dashboard/manageitems">
                   <HiOutlineMenu />
-                  Manage Item
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/managebooking">
-                  <FaBook />
-                  Manage Bookings
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/allUsers">
-                  <FaUsers />
-                  All User
+                  My Classes
                 </NavLink>
               </li>
             </>
