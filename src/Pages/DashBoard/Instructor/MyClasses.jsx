@@ -36,6 +36,11 @@ const MyClasses = () => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5000/instructorClasses/${classItem._id}`, {
           method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("access-token")}`,
+          },
+          
         })
           .then((res) => res.json())
           .then((data) => {

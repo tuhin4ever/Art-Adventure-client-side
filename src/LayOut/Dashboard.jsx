@@ -9,7 +9,6 @@ import {
   FaEdit,
 } from "react-icons/fa";
 import {
-  HiOutlineMail,
   HiOutlineMenu,
   HiOutlineMenuAlt2,
 } from "react-icons/hi";
@@ -18,8 +17,11 @@ import useAdmin from "../hooks/useAdmin";
 import useStudent from "../hooks/useStudent";
 import useInstructor from "../hooks/useInstructor";
 
+
 const Dashboard = () => {
   const [selectCourse] = useSelected();
+
+
 
   // TODO: load data from the server to have dynamic isAdmin based on data
   // const isAdmin = true;
@@ -154,12 +156,6 @@ const Dashboard = () => {
             <NavLink to="/classes">
               <HiOutlineMenuAlt2 />
               Classes
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/order/Salad">
-              <HiOutlineMail />
-              About Us
             </NavLink>
           </li>
         </ul>
