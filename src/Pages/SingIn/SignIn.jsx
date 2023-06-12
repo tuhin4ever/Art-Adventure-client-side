@@ -25,7 +25,7 @@ const SignIn = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     singIn(data.email, data.password).then((result) => {
       navigate(from, { replace: true });
       // console.log("result", result);

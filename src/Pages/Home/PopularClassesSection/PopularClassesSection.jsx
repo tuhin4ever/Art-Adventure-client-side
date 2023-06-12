@@ -29,14 +29,18 @@ const PopularClassesSection = () => {
               className="w-full h-64 object-cover rounded-t-lg transition duration-300 ease-in-out transform hover:scale-105"
             />
             <div className=" cursor-pointer px-4 mb-5 py-4 absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-center transition duration-300 ease-in-out opacity-0 hover:opacity-100">
-              <h3 className="text-lg font-semibold mb-2 text-white">
+              <h3 className="text-lg font-semibold mb-2 text-white Kalam-text">
                 {classItem.name}
               </h3>
-              <p className="text-white">Price : {classItem.price}</p>
-              <p className="text-white">
+              <p className="text-white Caveat-text ">
+                Price : {classItem.price}
+              </p>
+              <p className="text-white Caveat-text">
                 Available seats : {classItem.available_seats}
               </p>
-              <p className="text-white">enrolled: {classItem.enrolled}</p>
+              <p className="text-white Caveat-text">
+                enrolled: {classItem.enrolled}
+              </p>
             </div>
           </div>
         ))}

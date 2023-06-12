@@ -20,7 +20,7 @@ const ManageClasses = () => {
       return res.data;
     },
   });
-  console.log(classes);
+  // console.log(classes);
 
   const handleApprove = async (id) => {
     Swal.fire({

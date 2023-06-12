@@ -1,4 +1,8 @@
-import { FaTrashAlt } from "react-icons/fa";
+import {
+  FaTrashAlt,
+  FaUserShield,
+  FaUserTie,
+} from "react-icons/fa";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
@@ -124,12 +128,12 @@ const AllUsers = () => {
                         >
                           <li>
                             <button onClick={() => handleMakeAdmin(user)}>
-                              Admin
+                              <FaUserShield /> Admin
                             </button>
                           </li>
                           <li>
                             <button onClick={() => handleMakeInstructor(user)}>
-                              instructor
+                              <FaUserTie /> instructor
                             </button>
                           </li>
                         </ul>

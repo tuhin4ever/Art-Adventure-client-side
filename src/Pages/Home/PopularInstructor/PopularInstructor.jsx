@@ -33,8 +33,8 @@ const PopularInstructor = () => {
                 className="w-full h-64 object-cover rounded-t-lg opacity-full"
               />
               <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50">
-                <h3 className="text-lg font-semibold mb-2 text-white">{item.name}</h3>
-                <p className="text-white">Email: {item.email}</p>
+                <h3 className="text-lg font-semibold mb-2 text-white Caveat-text">{item.name}</h3>
+                <p className="text-white Permanent-text">Email: {item.email}</p>
               </div>
             </div>
           </div>
