@@ -31,6 +31,7 @@
     "react-parallax-tilt": "^1.7.145",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.11.2",
+    "react-slideshow-image": "^4.2.1",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.7.11"
   },

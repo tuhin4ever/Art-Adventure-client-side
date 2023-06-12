@@ -4,6 +4,7 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import InstructorCard from "./InstructorCard";
 import Contact from "./Contact/Contact";
 import { Helmet } from "react-helmet-async";
+import Slider from "./Slider/Slider";
 
 const Instructors = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -29,18 +30,21 @@ const Instructors = () => {
   }
 
   return (
-    <div className="mt-20">
-      <Helmet>
-        <title>Arts Adventure | Instructor</title>
-      </Helmet>
-      <SectionTitle heading="Instructors" subHeading="Meet Our" />
-      <div className="grid md:grid-cols-3 gap-6 my-container">
-        {data.map((item) => (
-          <InstructorCard key={item._id} item={item}></InstructorCard>
-        ))}
+    <>
+      <Slider></Slider>
+      <div className="mt-20">
+        <Helmet>
+          <title>Arts Adventure | Instructor</title>
+        </Helmet>
+        <SectionTitle heading="Instructors" subHeading="Meet Our" />
+        <div className="grid md:grid-cols-3 gap-6 my-container">
+          {data.map((item) => (
+            <InstructorCard key={item._id} item={item}></InstructorCard>
+          ))}
+        </div>
+        <Contact></Contact>
       </div>
-      <Contact></Contact>
-    </div>
+    </>
   );
 };
 
