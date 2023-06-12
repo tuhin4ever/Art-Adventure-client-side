@@ -44,7 +44,7 @@ const NavBar = () => {
         <div className="relative flex items-center justify-between ">
           {/* Logo Section */}
           <Link to="/" className="inline-flex items-center">
-            <img src="../../../public/Color-feathers.svg" className="w-20" />
+            <img src=".../../../../assets/Color-feathers.svg" className="w-20" />
             <div>
               <span className="text-3xl font-bold tracking-wide text-indigo-700 Caveat-text">
                 Arts Adventure

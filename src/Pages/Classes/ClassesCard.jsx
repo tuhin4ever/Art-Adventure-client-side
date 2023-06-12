@@ -20,7 +20,7 @@ export const ClassesCard = ({ item }) => {
   const handleAddSelect = () => {
     if (user && user.email) {
       const cartItem = { classId: _id, name, image, price, email: user.email };
-      fetch("http://localhost:5000/selectCourse", {
+      fetch("https://arts-adventure-server.vercel.app/selectCourse", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

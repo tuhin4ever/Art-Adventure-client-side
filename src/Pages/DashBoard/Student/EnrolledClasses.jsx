@@ -8,7 +8,7 @@ const EnrolledClasses = () => {
   const [enrolledClasses, setEnrolledClasses] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/paidClasses?email=${user.email}`, {
+    fetch(`https://arts-adventure-server.vercel.app/paidClasses?email=${user.email}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

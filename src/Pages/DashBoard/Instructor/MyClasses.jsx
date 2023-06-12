@@ -34,7 +34,7 @@ const MyClasses = () => {
       confirmButtonText: "Yes, Removed it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/instructorClasses/${classItem._id}`, {
+        fetch(`https://arts-adventure-server.vercel.app/instructorClasses/${classItem._id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

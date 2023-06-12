@@ -42,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: "instructors",
         element: <Instructors></Instructors>,
-        loader: () => fetch("http://localhost:5000/instructors"),
+        loader: () => fetch("https://arts-adventure-server.vercel.app/instructors"),
       },
     ],
   },

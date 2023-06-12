@@ -10,7 +10,7 @@ const useClasses = () => {
   } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/classes");
+      const res = await fetch("https://arts-adventure-server.vercel.app/classes");
       return res.json();
     },
   });

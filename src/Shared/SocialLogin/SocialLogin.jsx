@@ -22,7 +22,7 @@ const SocialLogin = () => {
         image: loggedInUser.photoURL,
         role: "student",
       };
-      fetch(`http://localhost:5000/users`, {
+      fetch(`https://arts-adventure-server.vercel.app/users`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -52,7 +52,7 @@ const SocialLogin = () => {
           onClick={handleGoogleSingIn}
           className="btn btn-circle btn-outline"
         >
-          <img src="../../../public/google-svgrepo-com.svg" className="w-8" />
+          <img src="../../assets/google-svgrepo-com.svg" className="w-8" />
         </button>
       </div>
     </div>

@@ -1,9 +1,9 @@
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
-
+import "./Slider.css";
 const Slider = () => {
   return (
-    <div className="">
+    <div>
       <Slide
         slidesToScroll={1}
         slidesToShow={1}
@@ -28,54 +28,52 @@ const Slider = () => {
         ]}
       >
         <div className="slide-content">
-          <img src="https://i.ibb.co/CJb3m5j/pexels-hatice-baran-16037014.jpg" />
-          <h3 className="text-4xl uppercase -mt-16 text-white text-center">
-            Salads
-          </h3>
+          <img
+            className="w-full h-96"
+            src="https://i.ibb.co/j8rYRKc/pexels-marina-meyer-9480590.jpg"
+          />
         </div>
         <div className="slide-content">
-          <img src="https://i.ibb.co/CJb3m5j/pexels-hatice-baran-16037014.jpg" />
-          <h3 className="text-4xl uppercase -mt-16 text-white text-center">
-            Pizzas
-          </h3>
+          <img
+            className="w-full h-96"
+            src="https://i.ibb.co/fk6q26x/pexels-patrick-nizan-11628533.jpg"
+          />
         </div>
         <div className="slide-content">
-          <img src="https://i.ibb.co/CJb3m5j/pexels-hatice-baran-16037014.jpg" />
-          <h3 className="text-4xl uppercase -mt-16 text-white text-center">
-            Soups
-          </h3>
+          <img
+            className="w-full h-96"
+            src="https://i.ibb.co/K6JggZt/pexels-olga-kalinina-8776178.jpg"
+          />
         </div>
         <div className="slide-content">
-          <img src="https://i.ibb.co/CJb3m5j/pexels-hatice-baran-16037014.jpg" />
-          <h3 className="text-4xl uppercase -mt-16 text-white text-center">
-            Desserts
-          </h3>
+          <img
+            className="w-full h-96"
+            src="https://i.ibb.co/XyjKCqS/pexels-curioso-photography-288100.jpg"
+          />
         </div>
         <div className="slide-content">
-          <img src="https://i.ibb.co/CJb3m5j/pexels-hatice-baran-16037014.jpg" />
-          <h3 className="text-4xl uppercase -mt-16 text-white text-center">
-            Burrito beef
-          </h3>
+          <img
+            className="w-full h-96"
+            src="https://i.ibb.co/wKg0Jt4/pexels-giovanni-calia-2733337.jpg"
+          />
         </div>
         <div className="slide-content">
-          <img src="https://i.ibb.co/CJb3m5j/pexels-hatice-baran-16037014.jpg" />
-          <h3 className="text-4xl uppercase -mt-16 text-white text-center">
-            Patishaptas
-          </h3>
+          <img
+            className="w-full h-96"
+            src="https://i.ibb.co/27kYGQh/pexels-steve-johnson-1234853.jpg"
+          />
         </div>
         <div className="slide-content">
-          <img src="https://i.ibb.co/CJb3m5j/pexels-hatice-baran-16037014.jpg" />
-          <h3 className="text-4xl uppercase -mt-20 text-white text-center">
-            Chicken
-            <br />
-            Wings
-          </h3>
+          <img
+            className="w-full h-96"
+            src="https://i.ibb.co/HHfrYBT/pexels-brett-sayles-3532440.jpg"
+          />
         </div>
         <div className="slide-content">
-          <img src="https://i.ibb.co/CJb3m5j/pexels-hatice-baran-16037014.jpg" />
-          <h3 className="text-4xl uppercase -mt-16 text-white text-center">
-            Burgers
-          </h3>
+          <img
+            className="w-full h-96"
+            src="https://i.ibb.co/RT34L7g/pexels-olga-kalinina-11294479.jpg"
+          />
         </div>
       </Slide>
     </div>
