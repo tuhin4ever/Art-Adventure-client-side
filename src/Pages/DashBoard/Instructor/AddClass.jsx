@@ -4,6 +4,7 @@ import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
 
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AddClass = () => {
   const { user } = useAuth();
@@ -35,6 +36,9 @@ const AddClass = () => {
   return (
     <div className="w-full relative  flex flex-col items-center justify-center min-h-screen ">
       <div className="relative h-screen mt-10">
+        <Helmet>
+          <title>Dashboard | Add Class</title>
+        </Helmet>
         <SectionTitle heading="Add Class" subHeading="New Classes" />
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
           <div className="flex flex-col md:flex-row mb-4">
@@ -55,7 +59,7 @@ const AddClass = () => {
             <input
               required
               className="p-3 m-1 border-2 rounded-md w-full md:w-auto"
-              placeholder="Toy Name"
+              placeholder="Class Name"
               {...register("name")}
             />
             <input

@@ -1,13 +1,16 @@
 import { useForm } from "react-hook-form";
+import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import readerSingIn from "../../assets/SignIn.json";
 import Lottie from "lottie-react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 const SignIn = () => {
+  const [showPassword, setShowPassword] = useState(false);
   window.scrollTo(0, 0);
   const { singIn } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -51,6 +54,9 @@ const SignIn = () => {
         className="absolute inset-0 flex items-center justify-center"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
       >
+        <Helmet>
+          <title>Arts Adventure | Sign In</title>
+        </Helmet>
         <div className="hero-content my-16 flex-col lg:flex-row-reverse">
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -73,19 +79,28 @@ const SignIn = () => {
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
-                <input
-                  {...register("password", {
-                    required: true,
-                    minLength: 6,
-                    maxLength: 20,
-                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
-                  })}
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  className="input input-bordered"
-                />
-
+                <div className="relative flex items-center justify-end">
+                  <input
+                    {...register("password", {
+                      required: true,
+                      minLength: 6,
+                      maxLength: 20,
+                      pattern:
+                        /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                    })}
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    placeholder="Password"
+                    className="input input-bordered pr-10 w-full"
+                  />
+                  <button
+                    type="button"
+                    className="btn-toggle absolute items-center mr-5"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
+                  </button>
+                </div>
                 {errors.password?.type === "required" && (
                   <span className="text-red-600">Password is required</span>
                 )}
@@ -101,7 +116,6 @@ const SignIn = () => {
                     lowercase letter, one number, and one special character
                   </span>
                 )}
-
                 <label className="label">
                   <a href="#" className="label-text-alt link link-hover">
                     Forgot password?

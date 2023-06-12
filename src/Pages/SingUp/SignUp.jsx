@@ -5,6 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import readerSingUp from "../../assets/ARTSsingUP.json";
 import Lottie from "lottie-react";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import { Helmet } from "react-helmet-async";
 
 const SignUp = () => {
   window.scrollTo(0, 0);
@@ -68,6 +69,9 @@ const SignUp = () => {
         className="absolute inset-0 flex items-center justify-center"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
       >
+        <Helmet>
+          <title>Arts Adventure | Sign Up</title>
+        </Helmet>
         <div className="hero-content my-16 flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left ">
             <h1 className="text-5xl font-bold text-center title-text uppercase Prism-text">
@@ -133,7 +137,8 @@ const SignUp = () => {
                       required: true,
                       minLength: 6,
                       maxLength: 20,
-                      pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
+                      pattern:
+                        /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                     })}
                     type="password"
                     name="password"
@@ -151,7 +156,8 @@ const SignUp = () => {
                   )}
                   {errors.password?.type === "pattern" && (
                     <span className="text-red-600">
-                      Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character
+                      Password must contain at least one uppercase letter, one
+                      lowercase letter, one number, and one special character
                     </span>
                   )}
                 </div>

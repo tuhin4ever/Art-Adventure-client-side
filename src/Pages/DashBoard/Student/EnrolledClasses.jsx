@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import useAuth from "../../../hooks/useAuth";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet-async";
 
 const EnrolledClasses = () => {
   const { user } = useAuth();
@@ -23,9 +24,12 @@ const EnrolledClasses = () => {
       });
   }, [user.email]);
 
-  console.log("enrolled classes", enrolledClasses);
+  // console.log("enrolled classes", enrolledClasses);
   return (
     <div className="h-screen w-full text-center mt-10">
+      <Helmet>
+        <title>Dashboard | Enrolled Classes</title>
+      </Helmet>
       <SectionTitle subHeading="Enrolled Classes" />
       <div className="overflow-x-auto ">
         <table className="table w-full">

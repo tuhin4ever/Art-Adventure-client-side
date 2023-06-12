@@ -1,8 +1,7 @@
-
 import { useState, useEffect } from "react";
 import useAuth from "../../../hooks/useAuth";
 import SectionTitle from "../../../Shared/SectionTitle/SectionTitle";
-
+import { Helmet } from "react-helmet-async";
 
 const PaymentHistory = () => {
   const { user } = useAuth();
@@ -18,7 +17,7 @@ const PaymentHistory = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setPaymentHistory(data);
       })
       .catch((error) => {
@@ -26,9 +25,12 @@ const PaymentHistory = () => {
       });
   }, [user.email]);
 
-    console.log("payment history", paymentHistory);
+  // console.log("payment history", paymentHistory);F
   return (
     <div className="h-screen w-full text-center mt-10">
+      <Helmet>
+        <title>Dashboard | Payment History</title>
+      </Helmet>
       <SectionTitle subHeading="Payment History" />
       <div className="overflow-x-auto ">
         <table className="table w-full">

@@ -4,11 +4,12 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "./CheckoutForm";
 
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 // TODO: provide stripe publishable key
 const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
 const Payment = () => {
   const { state } = useLocation();
-  console.log(state);
+  // console.log(state);
   let price = 0;
   if (state) {
     price = parseFloat(state.price).toFixed(2);
@@ -20,6 +21,9 @@ const Payment = () => {
         heading="Payment"
         subHeading="please process"
       ></SectionTitle>
+      <Helmet>
+        <title>Dashboard | Payment Process</title>
+      </Helmet>
       <Elements stripe={stripePromise}>
         {state && (
           <CheckoutForm price={price} selectCourse={state}></CheckoutForm>

@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { FcMakeDecision } from "react-icons/fc";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
+import { Helmet } from "react-helmet-async";
 const AllUsers = () => {
   const [axiosSecure] = useAxiosSecure();
 
@@ -79,7 +80,11 @@ const AllUsers = () => {
   return (
     <div className="w-full flex justify-center">
       <div className="h-screen w-full mt-10">
+        <Helmet>
+          <title>Dashboard | All User</title>
+        </Helmet>
         <SectionTitle heading="All Users" subHeading="All Users"></SectionTitle>
+
         <div className="overflow-x-auto">
           <table className="table  w-full  rounded-lg">
             <thead>

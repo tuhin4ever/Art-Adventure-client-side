@@ -107,7 +107,7 @@ const Dashboard = () => {
           {isStudent && (
             <>
               <li>
-                <NavLink to="/dashboard/history">
+                <NavLink to="/dashboard/home">
                   <FaHome />
                   User Home
                 </NavLink>

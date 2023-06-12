@@ -3,6 +3,7 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import useClasses from "../../hooks/useClasses";
 import { ClassesCard } from "./ClassesCard";
 import { Parallax } from "react-parallax";
+import { Helmet } from "react-helmet-async";
 
 const UniqueSpinner = () => {
   return (
@@ -44,6 +45,9 @@ export const Classes = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Arts Adventure | Classes</title>
+      </Helmet>
       <Parallax
         blur={{ min: -50, max: 50 }}
         bgImage="https://i.ibb.co/fX9x8w7/pexels-micheilecom-visual-stories-9350687.jpg"
@@ -57,7 +61,7 @@ export const Classes = () => {
               <h1 className="mb-5 Kalam-text text-5xl font-bold uppercase Permanent-text">
                 All Classes
               </h1>
-              
+
               <p className="mb-5 Permanent-text font-semibold  text-2xl t">
                 Unleash creativity, explore new mediums, and make lasting
                 memories. From painting to sculpture, our classes inspire young

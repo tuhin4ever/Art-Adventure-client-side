@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const ManageClasses = () => {
   const { user, loading } = useAuth();
@@ -22,35 +23,73 @@ const ManageClasses = () => {
   console.log(classes);
 
   const handleApprove = async (id) => {
-    try {
-      const res = await axiosSecure.put(`/approveClass/${id}`);
-      console.log(res.data);
-      Swal.fire({
-        icon: "success",
-        title: "Class Approved",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      refetch();
-    } catch (error) {
-      console.log(error);
-    }
+    Swal.fire({
+      title: "Send Feedback",
+      icon: "info",
+      html: '<input type="text" id="feedbackInput" placeholder="Enter your feedback" class="input w-full max-w-xs border-error">',
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: "Send",
+      cancelButtonText: "Cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const feedback = document.getElementById("feedbackInput").value;
+
+        axiosSecure
+          .put(`/approveClass/${id}`, { feedback })
+          .then((res) => {
+            if (res.data.modifiedCount > 0) {
+              Swal.fire({
+                icon: "success",
+                title: "Class Approve Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              refetch();
+            }
+          })
+          .catch((error) => {
+            console.error("Error sending feedback:", error);
+          });
+      }
+    });
+    
   };
 
+
   const handleReject = async (id) => {
-    try {
-      const res = await axiosSecure.put(`/rejectClass/${id}`);
-      console.log(res.data);
-      Swal.fire({
-        icon: "success",
-        title: "Class Rejected",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      refetch();
-    } catch (error) {
-      console.log(error);
-    }
+    Swal.fire({
+      title: "Send Feedback",
+      icon: "info",
+      html: '<input type="text" id="feedbackInput" placeholder="Enter your feedback" class="input w-full max-w-xs border-error">',
+      showCloseButton: true,
+      showCancelButton: true,
+      focusConfirm: false,
+      confirmButtonText: "Send",
+      cancelButtonText: "Cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const feedback = document.getElementById("feedbackInput").value;
+
+        axiosSecure
+          .put(`/rejectClass/${id}`, { feedback })
+          .then((res) => {
+            if (res.data.modifiedCount > 0) {
+              Swal.fire({
+                icon: "success",
+                title: "Class Rejected Successfully",
+                showConfirmButton: false,
+                timer: 1500,
+              });
+              refetch();
+            }
+          })
+          .catch((error) => {
+            console.error("Error sending feedback:", error);
+          });
+      }
+    });
   };
 
   if (isLoading || loading) {
@@ -65,7 +104,9 @@ const ManageClasses = () => {
     <div className="w-full ">
       <div className="overflow-x-auto">
         <table className="table text-center">
-          {/* head */}
+          <Helmet>
+            <title>Dashboard | Manage Classes</title>
+          </Helmet>
           <thead>
             <tr>
               <th></th>

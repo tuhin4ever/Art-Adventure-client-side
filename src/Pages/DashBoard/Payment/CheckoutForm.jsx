@@ -18,7 +18,7 @@ const CheckoutForm = ({ price, selectCourse }) => {
   useEffect(() => {
     if (price > 0) {
       axiosSecure.post("/create-payment-intent", { price }).then((res) => {
-        console.log(res.data.clientSecret);
+        // console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       });
     }
@@ -33,7 +33,7 @@ const CheckoutForm = ({ price, selectCourse }) => {
     if (card === null) {
       return;
     }
-    console.log("card", card);
+    // console.log("card", card);
 
     const { error } = await stripe.createPaymentMethod({
       type: "card",
@@ -41,7 +41,7 @@ const CheckoutForm = ({ price, selectCourse }) => {
     });
 
     if (error) {
-      console.log("[error]", error);
+      // console.log("[error]", error);
       setCardError(error.message);
     } else {
       setCardError("");
@@ -61,7 +61,7 @@ const CheckoutForm = ({ price, selectCourse }) => {
       });
 
     if (confirmError) {
-      console.log("[confirmError]", confirmError);
+      // console.log("[confirmError]", confirmError);
     }
 
     setProcessing(false);
@@ -80,7 +80,6 @@ const CheckoutForm = ({ price, selectCourse }) => {
         className: selectCourse.name, // Include only the specific item's name
         classPrice: selectCourse.price, // Include only the specific item's price
         classImage: selectCourse.image, // Include only the specific item's image
-
       };
       axiosSecure.post("/payments", payment).then((res) => {
         // console.log(res.data);
@@ -100,10 +99,7 @@ const CheckoutForm = ({ price, selectCourse }) => {
 
   return (
     <>
-      <form
-        className="md:w-5/12  mx-auto text-center "
-        onSubmit={handleSubmit}
-      >
+      <form className="md:w-5/12  mx-auto text-center " onSubmit={handleSubmit}>
         <div className="w-4/5 mx-auto bg-gray-200 rounded-lg p-4">
           <CardElement
             options={{
@@ -123,22 +119,21 @@ const CheckoutForm = ({ price, selectCourse }) => {
           />
         </div>
         <div className="text-center">
-        {cardError && <p className="text-red-500 ml-8 mt-3">{cardError}</p>}
-        {transactionId && (
-          <p className="text-green-500">
-            Transaction complete with transactionId: {transactionId}
-          </p>
-        )}
-        <button
-          className="mt-3 btn btn-outline border-0 border-b-4 border-red-900 text-lg text-base-content font-bold py-2 px-6 rounded-full"
-          type="submit"
-          disabled={!stripe || !clientSecret || processing}
-        >
-          Pay
-        </button>
-      </div>
+          {cardError && <p className="text-red-500 ml-8 mt-3">{cardError}</p>}
+          {transactionId && (
+            <p className="text-green-500">
+              Transaction complete with transactionId: {transactionId}
+            </p>
+          )}
+          <button
+            className="mt-3 btn btn-outline border-0 border-b-4 border-red-900 text-lg text-base-content font-bold py-2 px-6 rounded-full"
+            type="submit"
+            disabled={!stripe || !clientSecret || processing}
+          >
+            Pay
+          </button>
+        </div>
       </form>
-      
     </>
   );
 };

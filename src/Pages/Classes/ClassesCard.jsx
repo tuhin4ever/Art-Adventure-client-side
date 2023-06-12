@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useSelected from "../../hooks/useSelected";
 import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
 
 export const ClassesCard = ({ item }) => {
   const [, refetch] = useSelected();
@@ -15,6 +16,7 @@ export const ClassesCard = ({ item }) => {
   const location = useLocation();
 
   const [isAdmin] = useAdmin();
+  const [isInstructor] = useInstructor();
   const handleAddSelect = () => {
     if (user && user.email) {
       const cartItem = { classId: _id, name, image, price, email: user.email };
@@ -85,7 +87,7 @@ export const ClassesCard = ({ item }) => {
         <div className="card-actions mx-auto mt-4">
           <button
             onClick={() => handleAddSelect(item)}
-            disabled={available_seats === 0 || isAdmin}
+            disabled={available_seats === 0 || isAdmin || isInstructor}
             className={`btn btn-outline border-0 border-b-4 border-red-900 text-lg text-base-content font-light py-2 px-6 rounded-full ${
               available_seats === 0 ? "opacity-50 cursor-not-allowed" : ""
             }`}

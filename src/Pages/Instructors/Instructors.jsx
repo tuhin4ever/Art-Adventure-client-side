@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 import InstructorCard from "./InstructorCard";
 import Contact from "./Contact/Contact";
+import { Helmet } from "react-helmet-async";
 const Instructors = () => {
   const data = useLoaderData();
     // console.log(data);
@@ -10,6 +11,9 @@ const Instructors = () => {
 
   return (
     <div className="mt-20">
+      <Helmet>
+        <title>Arts Adventure | Instructor</title>
+      </Helmet>
       <SectionTitle heading="Instructors" subHeading="Meet Our" />
       <div className="grid md:grid-cols-3 gap-6 my-container">
         {data.map((item) => (

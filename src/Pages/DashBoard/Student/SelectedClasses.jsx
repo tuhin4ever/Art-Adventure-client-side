@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useSelected from "../../../hooks/useSelected";
 import Swal from "sweetalert2";
 import { FaTrashAlt } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const SelectedClasses = () => {
   const [selectCourse, refetch] = useSelected();
@@ -36,6 +37,9 @@ const SelectedClasses = () => {
 
   return (
     <div className="w-full">
+      <Helmet>
+        <title>Dashboard | Selected Classes</title>
+      </Helmet>
       <div className="h-screen mt-10">
         <div className="uppercase font-semibold h-16 flex justify-evenly items-center ">
           <h3 className="text-3xl text-center Permanent-text">
@@ -71,13 +75,11 @@ const SelectedClasses = () => {
                   <td>{item.name}</td>
                   <td>{item.price} $</td>
                   <td>
-                    <button>
-                      <Link state={item} to="/dashboard/payment">
-                        <button className="btn glass text-base-content btn-sm rounded">
-                          PAY
-                        </button>
-                      </Link>
-                    </button>
+                    <Link state={item} to="/dashboard/payment">
+                      <button className="btn glass text-base-content btn-sm rounded">
+                        PAY
+                      </button>
+                    </Link>
                   </td>
                   <td>
                     <button

@@ -10,8 +10,7 @@ const PopularClassesSection = () => {
       .then((data) => setPopularClasses(data));
   }, []);
 
-
-  console.log("popular classes", popularClasses)
+  // console.log("popular classes", popularClasses)
   return (
     <div className="container mx-auto px-4  ">
       <SectionTitle
@@ -34,7 +33,9 @@ const PopularClassesSection = () => {
                 {classItem.name}
               </h3>
               <p className="text-white">Price : {classItem.price}</p>
-              <p className="text-white">Available seats : {classItem.available_seats}</p>
+              <p className="text-white">
+                Available seats : {classItem.available_seats}
+              </p>
               <p className="text-white">enrolled: {classItem.enrolled}</p>
             </div>
           </div>
