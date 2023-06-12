@@ -68,7 +68,7 @@ const CheckoutForm = ({ price, selectCourse }) => {
     if (paymentIntent?.status === "succeeded") {
       setTransactionId(paymentIntent.id);
       // save payment information to the server
-      console.log("[PaymentIntent]", paymentIntent);
+      // console.log("[PaymentIntent]", paymentIntent);
       const payment = {
         email: user?.email,
         transactionId: paymentIntent.id,

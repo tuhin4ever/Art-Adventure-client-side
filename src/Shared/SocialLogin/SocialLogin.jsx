@@ -14,7 +14,7 @@ const SocialLogin = () => {
   const handleGoogleSingIn = () => {
     singInWithGoogle().then((result) => {
       const loggedInUser = result.user;
-      console.log(loggedInUser);
+      // console.log(loggedInUser);
 
       const saveUser = {
         name: loggedInUser.displayName,

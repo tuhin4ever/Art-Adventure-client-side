@@ -10,7 +10,7 @@ const DashHome = () => {
       <div
         className="absolute top-0 left-0 w-full h-full"
         style={{
-          backgroundImage: "url('https://i.ibb.co/q0b0Gr0/IMG-1593.jpg')",
+          backgroundImage: "url('https://i.ibb.co/cwpXqqP/pexels-charles-parker-5859225.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -30,7 +30,7 @@ const DashHome = () => {
           <img
             src={user.photoURL}
             alt="User Photo"
-            className=" border-double border-4 border-red-800 mx-auto rounded-full w-64 h-64 mb-4 shadow-lg"
+            className=" border-double border-4 border-red-800 mx-auto rounded-full w-52 h-52 mb-4 shadow-lg"
           />
           <h1 className="text-4xl font-bold text-white mb-2 Kalam-text">
             {user.displayName}

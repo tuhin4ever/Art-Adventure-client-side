@@ -71,7 +71,7 @@ const AllUsers = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.deletedCount > 0) {
               refetch();
               Swal.fire("Deleted!", `${user.name} deleted.`, "success");
