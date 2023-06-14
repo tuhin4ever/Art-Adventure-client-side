@@ -1,3 +1,4 @@
+import image from "../assets/Color-feathers.svg";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import {
   FaWallet,
@@ -45,7 +46,7 @@ const Dashboard = () => {
       <div className="drawer-side  top-0 left-0 h-screen w-80  text-base-content">
         <div className="m-2 z-10">
           <Link to="/" className="inline-flex items-center">
-            <img src="../../../public/Color-feathers.svg" className="w-20" />
+            <img src={image} className="w-20" />
             <div>
               <span className="text-3xl font-bold tracking-wide text-indigo-700 Caveat-text">
                 Arts Adventure

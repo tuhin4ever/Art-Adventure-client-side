@@ -1,10 +1,12 @@
+import image from "../../assets/Color-feathers.svg";
+
 const Footer = () => {
   return (
     <div className="my-content">
       <footer className=" bg-slate-950 bg-opacity-90 text-slate-200 footer p-10 ">
         <div>
           <img
-            src="../../../public/Color-feathers.svg"
+            src={image}
             className="w-20 ml-10"
           />
           <div className="flex items-center gap-5">

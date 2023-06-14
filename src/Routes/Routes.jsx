@@ -17,11 +17,14 @@ import EnrolledClasses from "../Pages/DashBoard/Student/EnrolledClasses";
 import PaymentHistory from "../Pages/DashBoard/Student/PaymentHistory";
 import MyClasses from "../Pages/DashBoard/Instructor/MyClasses";
 import DashHome from "../Pages/DashBoard/DashHome/DashHome";
+import InstructorRoute from "./InstructorRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -42,7 +45,8 @@ const router = createBrowserRouter([
       {
         path: "instructors",
         element: <Instructors></Instructors>,
-        loader: () => fetch("https://arts-adventure-server.vercel.app/instructors"),
+        loader: () =>
+          fetch("https://arts-adventure-server.vercel.app/instructors"),
       },
     ],
   },
@@ -72,7 +76,7 @@ const router = createBrowserRouter([
       },
       {
         path: "paymentHistory",
-        element: <PaymentHistory/>
+        element: <PaymentHistory />,
       },
       // admin routes
       {
@@ -94,12 +98,20 @@ const router = createBrowserRouter([
       // instructor routes
       {
         path: "addItem",
-        element: <AddClass></AddClass>,
+        element: (
+          <InstructorRoute>
+            <AddClass></AddClass>
+          </InstructorRoute>
+        ),
       },
       {
         path: "myClasses",
-        element: <MyClasses></MyClasses>,
-      }
+        element: (
+          <InstructorRoute>
+            <MyClasses></MyClasses>
+          </InstructorRoute>
+        ),
+      },
     ],
   },
 ]);

@@ -5,6 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useSelected from "../../hooks/useSelected";
 import DarkMode from "./DarkMode/DarkMode";
+import image from "../../assets/Color-feathers.svg";
 const NavBar = () => {
   const [selectCourse] = useSelected();
   //   const user = false;
@@ -44,7 +45,7 @@ const NavBar = () => {
         <div className="relative flex items-center justify-between ">
           {/* Logo Section */}
           <Link to="/" className="inline-flex items-center">
-            <img src=".../../../../assets/Color-feathers.svg" className="w-20" />
+            <img src={image} className="w-20" />
             <div>
               <span className="text-3xl font-bold tracking-wide text-indigo-700 Caveat-text">
                 Arts Adventure

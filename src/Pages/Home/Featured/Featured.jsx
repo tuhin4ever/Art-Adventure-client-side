@@ -1,5 +1,6 @@
 import Tilt from "react-parallax-tilt";
 import "./Featured.css";
+import { Link } from "react-router-dom";
 
 const Featured = () => {
   return (
@@ -19,9 +20,9 @@ const Featured = () => {
             societal norms, ignite imagination, and delve deep into the
             intricacies of human perception.
           </p>
-          <button className="mt-4 md:mt-6 btn  btn-outline border-0 border-b-2 hover:bg-accent-focus  border-red-900  text-white  py-2 px-6 rounded-full">
+          <Link  to='/error' className="mt-4 md:mt-6 btn  btn-outline border-0 border-b-2 hover:bg-accent-focus  border-red-900  text-white  py-2 px-6 rounded-full">
             Apply Now !
-          </button>
+          </Link>
         </div>
         <div className="mt-8 md:mt-0 md:w-1/2 md:order-1">
           <Tilt>

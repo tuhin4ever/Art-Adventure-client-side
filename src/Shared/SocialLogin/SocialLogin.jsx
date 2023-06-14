@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
-
+import  image from "../../assets/google-svgrepo-com.svg"
 const SocialLogin = () => {
   const { singInWithGoogle } = useContext(AuthContext);
 
@@ -52,7 +52,7 @@ const SocialLogin = () => {
           onClick={handleGoogleSingIn}
           className="btn btn-circle btn-outline"
         >
-          <img src="../../assets/google-svgrepo-com.svg" className="w-8" />
+          <img src={image} className="w-8" />
         </button>
       </div>
     </div>
